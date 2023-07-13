@@ -15,9 +15,17 @@ public class WaggingTailAnim : MonoBehaviour
 
     void Update()
     {
+        bool Wagging = false;
         if (Input.GetMouseButtonDown(0))
         {
-            anim.SetTrigger("Active");
+            Vector3 up = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D coll = Dog.GetComponent<Collider2D>();
+            
+           
+                Wagging = true;
+        
+
+            anim.SetBool("Wagging", Wagging);
         }
     }
 }
