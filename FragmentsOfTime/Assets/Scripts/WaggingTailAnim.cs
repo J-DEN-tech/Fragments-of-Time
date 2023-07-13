@@ -6,26 +6,32 @@ public class WaggingTailAnim : MonoBehaviour
 {
     public GameObject Dog = null;
     Animator anim;
+    bool Wagging = false;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
     }
 
-
     void Update()
     {
-        bool Wagging = false;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Wagging)
         {
-            Vector3 up = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D coll = Dog.GetComponent<Collider2D>();
-            
-           
-                Wagging = true;
-        
-
-            anim.SetBool("Wagging", Wagging);
+            Wagging = true;
+            anim.SetBool("Wagging", true);
         }
+
+          if (Input.GetMouseButtonUp(0) && Wagging)
+        {
+            Wagging = false;
+            anim.SetBool("Wagging", false);
+        }
+    }
+
+    // This function will be called when the animation finishes playing
+    public void AnimationFinished()
+    {
+        Wagging = false;
+        anim.SetBool("Wagging", false);
     }
 }
