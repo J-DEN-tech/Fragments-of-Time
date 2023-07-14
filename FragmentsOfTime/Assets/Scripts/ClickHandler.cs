@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class ClickHandler : MonoBehaviour
 {
-    public GameObject ChildRoomStart;
+    public GameObject RoomStart;
     public GameObject WindowView;
     public GameObject ToyChestView;
     public GameObject ShelfView;
     public GameObject WardrobeView;
+    public GameObject DeskView;
+    public GameObject DogBowlView;
 
+    public int hangerTotal;
+    public GameObject CoatHangerOrange;
+    
     private void Start()
     {
-        ChildRoomStart.SetActive(true);
+        RoomStart.SetActive(true);
         WindowView.SetActive(false);
         ToyChestView.SetActive(false);
         ShelfView.SetActive(false);
         WardrobeView.SetActive(false);
+        DeskView.SetActive(false);
+        DogBowlView.SetActive(false);
     }
 
     void Update()
@@ -38,7 +45,7 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "Window":
                         WindowView.SetActive(true);
-                        ChildRoomStart.SetActive(false);
+                        RoomStart.SetActive(false);
                         WardrobeView.SetActive(false);
                         break;
                     case "FlowerPot(WindowView)":
@@ -49,9 +56,14 @@ public class ClickHandler : MonoBehaviour
                         Debug.Log("Fairy wand Obtained");
                         clickedObject.SetActive(false);
                         break;
+                    case "CoatHanger(WindowView)":
+                        clickedObject.SetActive(false);
+                        CoatHangerOrange.SetActive(false);
+                        hangerTotal += 1;
+                        break;
                     case "ToyChest":
                         ToyChestView.SetActive(true);
-                        ChildRoomStart.SetActive(false);
+                        RoomStart.SetActive(false);
                         WardrobeView.SetActive(false);
                         break;
                     case "ToyChest(ToyChestView)":
@@ -61,7 +73,7 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "Wardrobe":
                         WardrobeView.SetActive(true);
-                        ChildRoomStart.SetActive(false);
+                        RoomStart.SetActive(false);
                         break;
                     case "Wardrobe(WardrobeView)":
                         clickedObject.GetComponent<WardrobeScript>().WardrobeOpen();
@@ -69,11 +81,31 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "Shelf":
                         ShelfView.SetActive(true);
-                        ChildRoomStart.SetActive(false);
+                        RoomStart.SetActive(false);
                         break;
                     case "Key(ShelfView)":
                         Debug.Log("Key Obtained");
                         clickedObject.SetActive(false);
+                        break;
+                    case "Desk":
+                        DeskView.SetActive(true);
+                        RoomStart.SetActive(false);
+                        break;
+                    case "Broom(DeskView)":
+                        Debug.Log("Broom Obtained");
+                        clickedObject.SetActive(false);
+                        break;
+                    case "Bottle(DeskView)":
+                        Debug.Log("Bottle Obtained");
+                        clickedObject.SetActive(false);
+                        break;
+                    case "DogBowl":
+                        DogBowlView.SetActive(true);
+                        RoomStart.SetActive(false);
+                        break;
+                    case "DogBowl(DogBowlView)":
+                        clickedObject.GetComponent<DogBowlScript>().DogBowlFill();
+                        clickedObject.GetComponent<AudioSource>().Play();
                         break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
@@ -81,18 +113,19 @@ public class ClickHandler : MonoBehaviour
                         break;
                 }
             }
-
         }
     }
     public void BackButton()
     {
-        if(!ChildRoomStart.activeInHierarchy)
+        if(!RoomStart.activeInHierarchy)
         {
-            ChildRoomStart.SetActive(true);
+            RoomStart.SetActive(true);
             WindowView.SetActive(false);
             ToyChestView.SetActive(false);
             ShelfView.SetActive(false);
             WardrobeView.SetActive(false);
+            DeskView.SetActive(false);
+            DogBowlView.SetActive(false);
         }
     }
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float duration)

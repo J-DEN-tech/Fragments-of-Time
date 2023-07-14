@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 44524724}
   m_Layer: 0
-  m_Name: ChildRoomStart
+  m_Name: RoomStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3855,7 +3855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b3a723a67579a4195ed02e73a083d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChildRoomStart: {fileID: 44524723}
+  RoomStart: {fileID: 44524723}
   WindowView: {fileID: 984604717}
   ToyChestView: {fileID: 1149627625}
   ShelfView: {fileID: 1103423470}
