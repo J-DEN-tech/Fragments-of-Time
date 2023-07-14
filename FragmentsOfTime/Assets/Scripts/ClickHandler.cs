@@ -12,6 +12,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject DeskView;
     public GameObject DogBowlView;
     public GameObject BedView;
+    public GameObject DrawerView;
 
     public GameObject ToyChest;
 
@@ -30,7 +31,7 @@ public class ClickHandler : MonoBehaviour
         DeskView.SetActive(false);
         DogBowlView.SetActive(false);
         BedView.SetActive(false);
-
+        DrawerView.SetActive(false);
     }
 
     void Update()
@@ -109,6 +110,14 @@ public class ClickHandler : MonoBehaviour
                         DeskView.SetActive(true);
                         RoomStart.SetActive(false);
                         break;
+                    case "Desk(DeskView)":
+                        DrawerView.SetActive(true);
+                        DeskView.SetActive(false);
+                        DrawerView.GetComponent<AudioSource>().Play();
+                        break;
+                    case "DogMeds":
+                        clickedObject.SetActive(false);
+                        break;
                     case "Broom(DeskView)":
                         Debug.Log("Broom Obtained");
                         clickedObject.SetActive(false);
@@ -149,6 +158,12 @@ public class ClickHandler : MonoBehaviour
             DeskView.SetActive(false);
             DogBowlView.SetActive(false);
             BedView.SetActive(false);
+            DrawerView.SetActive(false);
+            Debug.Log("Went back to previous screen");
+        }
+        else
+        {
+            Debug.Log("No previous screen, or button not working");
         }
     }
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float duration)
