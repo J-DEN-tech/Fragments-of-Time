@@ -11,9 +11,14 @@ public class ClickHandler : MonoBehaviour
     public GameObject WardrobeView;
     public GameObject DeskView;
     public GameObject DogBowlView;
+    public GameObject BedView;
+
+    public GameObject ToyChest;
 
     public int hangerTotal;
     public GameObject CoatHangerOrange;
+    public GameObject CoatHangerBlue;
+    public GameObject CoatHangerPink;
     
     private void Start()
     {
@@ -24,6 +29,8 @@ public class ClickHandler : MonoBehaviour
         WardrobeView.SetActive(false);
         DeskView.SetActive(false);
         DogBowlView.SetActive(false);
+        BedView.SetActive(false);
+
     }
 
     void Update()
@@ -61,6 +68,15 @@ public class ClickHandler : MonoBehaviour
                         CoatHangerOrange.SetActive(false);
                         hangerTotal += 1;
                         break;
+                    case "CoatHangerBlue":
+                        clickedObject.SetActive(false);
+                        hangerTotal+= 1;
+                        break;
+                    case "CoatHangerPink":
+                        clickedObject.SetActive(false);
+                        hangerTotal+= 1;
+                        CoatHangerPink.SetActive(false);
+                        break;
                     case "ToyChest":
                         ToyChestView.SetActive(true);
                         RoomStart.SetActive(false);
@@ -70,10 +86,12 @@ public class ClickHandler : MonoBehaviour
                         Debug.Log("Toy Chest Opened");
                         clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
                         clickedObject.GetComponent<AudioSource>().Play();
+                        ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
                         break;
                     case "Wardrobe":
                         WardrobeView.SetActive(true);
                         RoomStart.SetActive(false);
+                        BedView.SetActive(false);
                         break;
                     case "Wardrobe(WardrobeView)":
                         clickedObject.GetComponent<WardrobeScript>().WardrobeOpen();
@@ -107,6 +125,10 @@ public class ClickHandler : MonoBehaviour
                         clickedObject.GetComponent<DogBowlScript>().DogBowlFill();
                         clickedObject.GetComponent<AudioSource>().Play();
                         break;
+                    case "Bed":
+                        BedView.SetActive(true);
+                        RoomStart.SetActive(false);
+                        break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
                         // Perform default action
@@ -126,6 +148,7 @@ public class ClickHandler : MonoBehaviour
             WardrobeView.SetActive(false);
             DeskView.SetActive(false);
             DogBowlView.SetActive(false);
+            BedView.SetActive(false);
         }
     }
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float duration)

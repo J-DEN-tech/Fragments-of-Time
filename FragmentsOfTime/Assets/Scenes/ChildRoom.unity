@@ -3860,6 +3860,13 @@ MonoBehaviour:
   ToyChestView: {fileID: 1149627625}
   ShelfView: {fileID: 1103423470}
   WardrobeView: {fileID: 1048207209}
+  DeskView: {fileID: 0}
+  DogBowlView: {fileID: 0}
+  ToyChest: {fileID: 850140101}
+  hangerTotal: 0
+  CoatHangerOrange: {fileID: 0}
+  CoatHangerBlue: {fileID: 0}
+  CoatHangerPink: {fileID: 0}
 --- !u!4 &1652004220
 Transform:
   m_ObjectHideFlags: 0
