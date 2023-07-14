@@ -7,16 +7,12 @@ public class ClickHandler : MonoBehaviour
     public GameObject ChildRoomStart;
     public GameObject WindowView;
     public GameObject ToyChestView;
-    public GameObject ShelfView;
-    public GameObject WardrobeView;
 
     private void Start()
     {
         ChildRoomStart.SetActive(true);
         WindowView.SetActive(false);
         ToyChestView.SetActive(false);
-        ShelfView.SetActive(false);
-        WardrobeView.SetActive(false);
     }
 
     void Update()
@@ -36,11 +32,6 @@ public class ClickHandler : MonoBehaviour
                     case "Window":
                         WindowView.SetActive(true);
                         ChildRoomStart.SetActive(false);
-                        WardrobeView.SetActive(false);
-                        break;
-                    case "Dog":
-                        clickedObject.GetComponent<AudioSource>().Play();
-                        Debug.Log("Dog Barked");
                         break;
                     case "FlowerPot(WindowView)":
                         Debug.Log("FlowerPot Clicked");
@@ -53,29 +44,10 @@ public class ClickHandler : MonoBehaviour
                     case "ToyChest":
                         ToyChestView.SetActive(true);
                         ChildRoomStart.SetActive(false);
-                        WardrobeView.SetActive(false);
                         break;
                     case "ToyChest(ToyChestView)":
                         Debug.Log("Toy Chest Opened");
                         clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
-                        clickedObject.GetComponent<AudioSource>().Play();
-                        break;
-                    case "Shelf":
-                        ShelfView.SetActive(true);
-                        ChildRoomStart.SetActive(false);
-                        break;
-                    case "Key(ShelfView)":
-                        Debug.Log("Key Obtained");
-                        clickedObject.SetActive(false);
-                        break;
-                    case "Wardrobe":
-                        WardrobeView.SetActive(true);
-                        ChildRoomStart.SetActive(false);
-                        break;
-                    case "Wardrobe(WardrobeView)":
-                        Debug.Log("Wardrobe Open");
-                        clickedObject.GetComponent<WardrobeScript>().WardrobeOpen();
-                        clickedObject.GetComponent<AudioSource>().Play();
                         break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
@@ -83,6 +55,7 @@ public class ClickHandler : MonoBehaviour
                         break;
                 }
             }
+
         }
     }
     public void BackButton()
@@ -92,8 +65,6 @@ public class ClickHandler : MonoBehaviour
             ChildRoomStart.SetActive(true);
             WindowView.SetActive(false);
             ToyChestView.SetActive(false);
-            ShelfView.SetActive(false);
-            WardrobeView.SetActive(false);
         }
     }
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float duration)
