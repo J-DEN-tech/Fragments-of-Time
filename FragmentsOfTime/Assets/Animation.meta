@@ -1,8 +1,20 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:FragmentsOfTime/Assets/Animation.meta
 guid: ede5fa56a8c872c44b4a4f291ee829de
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
+=======
+guid: 81dbcde0f90df4e9ba9ca2794490e57a
+<<<<<<< Updated upstream
+timeCreated: 1491251885
+licenseType: Free
+DefaultImporter:
+=======
+DefaultImporter:
+  externalObjects: {}
+>>>>>>> Stashed changes
+>>>>>>> parent of 59a3d99 (Revert "Child room mostly interactable, waiting on inventory to start puzzles"):FragmentsOfTime/Assets/Fungus/Integrations/Playmaker/Fungus-PlayMaker.unitypackage.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
