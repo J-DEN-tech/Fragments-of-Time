@@ -16,6 +16,8 @@ public class ClickHandler : MonoBehaviour
     public GameObject DogBowlView;
     public GameObject BedView;
     public GameObject DrawerView;
+    public GameObject VetNoteView;
+    public GameObject ComputerView;
 
     public GameObject ToyChest;
 
@@ -26,9 +28,15 @@ public class ClickHandler : MonoBehaviour
 
     public GameObject DeskLock;
     public TMP_InputField DeskCodeInputField;
-    public string correctCode = "1215";
+    public string drawerCode = "1215";
     public bool isDeskLockOpen = false;
-    
+
+    public GameObject ComputerLock;
+    public TMP_InputField ComputerInputField;
+    public string computerCode = "462895";
+    public bool isComputerLockOpen = false;
+
+
     private void Start()
     {
         RoomStart.SetActive(true);
@@ -41,6 +49,9 @@ public class ClickHandler : MonoBehaviour
         BedView.SetActive(false);
         DrawerView.SetActive(false);
         DeskLock.SetActive(false);
+        VetNoteView.SetActive(false);
+        ComputerView.SetActive(false);
+        ComputerLock.SetActive(false);
 
         DeskCodeInputField = DeskLock.GetComponentInChildren<TMP_InputField>();
         if (DeskCodeInputField == null)
@@ -50,6 +61,15 @@ public class ClickHandler : MonoBehaviour
         else
         {
             Debug.Log("DeskCodeInputField is assigned.");
+        }
+        ComputerInputField = ComputerLock.GetComponentInChildren<TMP_InputField>(); 
+        if (ComputerInputField == null) 
+        {
+            Debug.Log("ComputerCodeInputField is not assigned.");
+        }
+        else
+        {
+            Debug.Log("ComputerCodeInputField is assigned.");
         }
     }
 
@@ -146,6 +166,23 @@ public class ClickHandler : MonoBehaviour
                     case "DogMeds":
                         clickedObject.SetActive(false);
                         break;
+                    case "VetNote":
+                        VetNoteView.SetActive(true);
+                        DrawerView.SetActive(false);
+                        break;
+                    case "Computer":
+                        ComputerView.SetActive(true);
+                        DeskView.SetActive(false);
+                        if(isComputerLockOpen == false) 
+                        {
+                            Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
+                            ComputerLock.SetActive(true);
+                        }
+                        else if (isComputerLockOpen == true)
+                        {
+                            Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
+                        }
+                        break;
                     case "Broom(DeskView)":
                         Debug.Log("Broom Obtained");
                         clickedObject.SetActive(false);
@@ -188,6 +225,9 @@ public class ClickHandler : MonoBehaviour
             BedView.SetActive(false);
             DrawerView.SetActive(false);
             DeskLock.SetActive(false);
+            VetNoteView.SetActive(false);
+            ComputerView.SetActive(false);
+            ComputerLock.SetActive(false);
             Debug.Log("Went back to previous screen");
         }
         else
@@ -199,13 +239,30 @@ public class ClickHandler : MonoBehaviour
     {
         string enteredCode = DeskCodeInputField.text;
 
-        if(enteredCode == correctCode)
+        if(enteredCode == drawerCode)
         {
             Debug.Log("Correct Code");
             isDeskLockOpen = true;
             //DeskLock.GetComponent<AudioSource>().Play();
             GameObject.Find("BackButton").GetComponent<AudioSource>().Play();
             DeskLock.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("incorrect code");
+        }
+    }
+    public void ComputerCode()
+    {
+        string enteredCode = ComputerInputField.text;
+
+        if (enteredCode == computerCode)
+        {
+            Debug.Log("Correct Code");
+            isComputerLockOpen = true;
+            //DeskLock.GetComponent<AudioSource>().Play();
+            GameObject.Find("BackButton").GetComponent<AudioSource>().Play();
+            ComputerLock.SetActive(false);
         }
         else
         {
