@@ -101,10 +101,14 @@ public class ClickHandler : MonoBehaviour
                     case "Dog":
                         clickedObject.GetComponent<AudioSource>().Play();
                         break;
-                    case "Window":
+                    case "Dog(DogBowlView)":
+                        flowchart.ExecuteBlock("Dog(Adult)");
+                        break;
+                    case "Window(Adult)":
                         WindowView.SetActive(true);
                         RoomStart.SetActive(false);
                         WardrobeView.SetActive(false);
+                        flowchart.ExecuteBlock("Window(Adult)");
                         break;
                     case "FlowerPot(WindowView)":
                         Debug.Log("FlowerPot Clicked");
@@ -171,6 +175,7 @@ public class ClickHandler : MonoBehaviour
                         {
                             Debug.Log("isDeskLockOpen = " + isDeskLockOpen);
                             DeskLock.SetActive(true);
+                            flowchart.ExecuteBlock("Drawer1");
                         }
                         else if (isDeskLockOpen == true)
                         {
@@ -178,6 +183,7 @@ public class ClickHandler : MonoBehaviour
                             DrawerView.SetActive(true);
                             DeskView.SetActive(false);
                             DrawerView.GetComponent<AudioSource>().Play();
+                            flowchart.ExecuteBlock("Drawer3");
                         }
                         break;
                     case "DogMeds":
@@ -186,6 +192,7 @@ public class ClickHandler : MonoBehaviour
                     case "VetNote":
                         VetNoteView.SetActive(true);
                         DrawerView.SetActive(false);
+                        flowchart.ExecuteBlock("VetNote");
                         break;
                     case "Computer":
                         ComputerView.SetActive(true);
@@ -194,6 +201,7 @@ public class ClickHandler : MonoBehaviour
                         {
                             Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
                             ComputerLock.SetActive(true);
+                            flowchart.ExecuteBlock("Computer1");
                         }
                         else if (isComputerLockOpen == true)
                         {
@@ -265,6 +273,7 @@ public class ClickHandler : MonoBehaviour
             //DeskLock.GetComponent<AudioSource>().Play();
             GameObject.Find("BackButton").GetComponent<AudioSource>().Play();
             DeskLock.SetActive(false);
+            flowchart.ExecuteBlock("Drawer2");
         }
         else
         {
