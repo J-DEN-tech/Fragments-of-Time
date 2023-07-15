@@ -1,6 +1,9 @@
+using Fungus;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickHandler : MonoBehaviour
 {
@@ -20,6 +23,11 @@ public class ClickHandler : MonoBehaviour
     public GameObject CoatHangerOrange;
     public GameObject CoatHangerBlue;
     public GameObject CoatHangerPink;
+
+    public GameObject DeskLock;
+    public TMP_InputField DeskCodeInputField;
+    public string correctCode = "1215";
+    public bool isDeskLockOpen = false;
     
     private void Start()
     {
@@ -32,6 +40,17 @@ public class ClickHandler : MonoBehaviour
         DogBowlView.SetActive(false);
         BedView.SetActive(false);
         DrawerView.SetActive(false);
+        DeskLock.SetActive(false);
+
+        DeskCodeInputField = DeskLock.GetComponentInChildren<TMP_InputField>();
+        if (DeskCodeInputField == null)
+        {
+            Debug.Log("DeskCodeInputField is not assigned.");
+        }
+        else
+        {
+            Debug.Log("DeskCodeInputField is assigned.");
+        }
     }
 
     void Update()
@@ -111,9 +130,18 @@ public class ClickHandler : MonoBehaviour
                         RoomStart.SetActive(false);
                         break;
                     case "Desk(DeskView)":
-                        DrawerView.SetActive(true);
-                        DeskView.SetActive(false);
-                        DrawerView.GetComponent<AudioSource>().Play();
+                        if(isDeskLockOpen == false)
+                        {
+                            Debug.Log("isDeskLockOpen = " + isDeskLockOpen);
+                            DeskLock.SetActive(true);
+                        }
+                        else if (isDeskLockOpen == true)
+                        {
+                            Debug.Log("isDeskLockOpen = " + isDeskLockOpen);
+                            DrawerView.SetActive(true);
+                            DeskView.SetActive(false);
+                            DrawerView.GetComponent<AudioSource>().Play();
+                        }
                         break;
                     case "DogMeds":
                         clickedObject.SetActive(false);
@@ -159,11 +187,29 @@ public class ClickHandler : MonoBehaviour
             DogBowlView.SetActive(false);
             BedView.SetActive(false);
             DrawerView.SetActive(false);
+            DeskLock.SetActive(false);
             Debug.Log("Went back to previous screen");
         }
         else
         {
             Debug.Log("No previous screen, or button not working");
+        }
+    }
+    public void DeskCode()
+    {
+        string enteredCode = DeskCodeInputField.text;
+
+        if(enteredCode == correctCode)
+        {
+            Debug.Log("Correct Code");
+            isDeskLockOpen = true;
+            //DeskLock.GetComponent<AudioSource>().Play();
+            GameObject.Find("BackButton").GetComponent<AudioSource>().Play();
+            DeskLock.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("incorrect code");
         }
     }
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float duration)
