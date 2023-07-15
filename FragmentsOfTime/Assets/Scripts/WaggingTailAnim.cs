@@ -34,4 +34,11 @@ public class WaggingTailAnim : MonoBehaviour
         Wagging = false;
         anim.SetBool("Wagging", false);
     }
+
+    public void BarkAndWag()
+    {
+        Wagging= true;
+        anim.SetBool("Wagging", true);
+        gameObject.GetComponent<AudioSource>().Play();
+    }
 }
