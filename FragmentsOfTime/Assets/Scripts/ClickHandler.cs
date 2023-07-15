@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ClickHandler : MonoBehaviour
 {
+    public Flowchart flowchart;
+
     public GameObject RoomStart;
     public GameObject WindowView;
     public GameObject ToyChestView;
@@ -52,6 +55,14 @@ public class ClickHandler : MonoBehaviour
         VetNoteView.SetActive(false);
         ComputerView.SetActive(false);
         ComputerLock.SetActive(false);
+
+        /*Scene currentScene = SceneManager.GetActiveScene();
+        switch(currentScene.name)
+        {
+            case "ChildRoom":
+                flowchart.ExecuteBlock("ChildRoomStart");
+                break;
+        }*/
 
         DeskCodeInputField = DeskLock.GetComponentInChildren<TMP_InputField>();
         if (DeskCodeInputField == null)
@@ -102,6 +113,7 @@ public class ClickHandler : MonoBehaviour
                     case "FairyWand":
                         Debug.Log("Fairy wand Obtained");
                         clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("FairyWand(Child)");
                         break;
                     case "CoatHanger(WindowView)":
                         clickedObject.SetActive(false);
@@ -121,6 +133,7 @@ public class ClickHandler : MonoBehaviour
                         ToyChestView.SetActive(true);
                         RoomStart.SetActive(false);
                         WardrobeView.SetActive(false);
+                        flowchart.ExecuteBlock("LockedChest");
                         break;
                     case "ToyChest(ToyChestView)":
                         Debug.Log("Toy Chest Opened");
@@ -132,6 +145,7 @@ public class ClickHandler : MonoBehaviour
                         WardrobeView.SetActive(true);
                         RoomStart.SetActive(false);
                         BedView.SetActive(false);
+                        flowchart.ExecuteBlock("Wardrobe(Child)");
                         break;
                     case "Wardrobe(WardrobeView)":
                         clickedObject.GetComponent<WardrobeScript>().WardrobeOpen();
@@ -140,10 +154,12 @@ public class ClickHandler : MonoBehaviour
                     case "Shelf":
                         ShelfView.SetActive(true);
                         RoomStart.SetActive(false);
+                        flowchart.ExecuteBlock("Shelf(Child)");
                         break;
                     case "Key(ShelfView)":
                         Debug.Log("Key Obtained");
                         clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("Key(Child)");
                         break;
                     case "Desk":
                         DeskView.SetActive(true);
@@ -202,6 +218,7 @@ public class ClickHandler : MonoBehaviour
                     case "Bed":
                         BedView.SetActive(true);
                         RoomStart.SetActive(false);
+                        flowchart.ExecuteBlock("Bed(Child)");
                         break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
