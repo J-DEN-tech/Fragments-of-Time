@@ -104,6 +104,11 @@ public class ClickHandler : MonoBehaviour
                     case "Dog(DogBowlView)":
                         flowchart.ExecuteBlock("Dog(Adult)");
                         break;
+                    case "Window":
+                        WindowView.SetActive(true);
+                        RoomStart.SetActive(false);
+                        WardrobeView.SetActive(false);
+                        break;
                     case "Window(Adult)":
                         WindowView.SetActive(true);
                         RoomStart.SetActive(false);
