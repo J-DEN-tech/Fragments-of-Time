@@ -119,6 +119,7 @@ public class ClickHandler : MonoBehaviour
                         clickedObject.SetActive(false);
                         CoatHangerOrange.SetActive(false);
                         hangerTotal += 1;
+                        flowchart.ExecuteBlock("CoatHangerOrange");
                         break;
                     case "CoatHangerBlue":
                         clickedObject.SetActive(false);
@@ -214,6 +215,7 @@ public class ClickHandler : MonoBehaviour
                     case "DogBowl(DogBowlView)":
                         clickedObject.GetComponent<DogBowlScript>().DogBowlFill();
                         clickedObject.GetComponent<AudioSource>().Play();
+                        flowchart.ExecuteBlock("DogBowl(Teen)");
                         break;
                     case "Bed":
                         BedView.SetActive(true);
