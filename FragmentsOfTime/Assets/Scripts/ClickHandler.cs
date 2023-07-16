@@ -52,6 +52,8 @@ public class ClickHandler : MonoBehaviour
     public bool isComputerLockOpen = false;
     public GameObject ComputerObject;
 
+    public GameObject FuneralDress;
+
 
     private void Start()
     {
@@ -182,11 +184,19 @@ public class ClickHandler : MonoBehaviour
                         WardrobeView.SetActive(false);
                         break;
                     case "ToyChest(ToyChestView)":
-                        if(hasKey == false && currentScene.name == "ChildRoom")
+                        if (hasKey == false && currentScene.name == "ChildRoom")
                         {
                             flowchart.ExecuteBlock("LockedChest");
                         }
-                        else if(hasKey == true && currentScene.name == "ChildRoom")
+                        else if (hasKey == true && currentScene.name == "ChildRoom")
+                        {
+                            Debug.Log("Toy Chest Opened");
+                            clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            DogToy.SetActive(true);
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                        }
+                        else if (currentScene.name == "Senior_Room")
                         {
                             Debug.Log("Toy Chest Opened");
                             clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
@@ -208,6 +218,18 @@ public class ClickHandler : MonoBehaviour
                         hasDogToy = true;
                         flowchart.ExecuteBlock("DogToy(Child)");
                         break;
+                    case "DogToy(Ear)":
+                        clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("DogToy(Ear)");
+                        break;
+                    case "DogToy(Arm)":
+                        clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("DogToy(Arm)");
+                        break;
+                    case "DogToy(Leg)":
+                        clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("DogToy(Leg)");
+                        break;
                     case "Wardrobe":
                         WardrobeView.SetActive(true);
                         RoomStart.SetActive(false);
@@ -226,6 +248,10 @@ public class ClickHandler : MonoBehaviour
                             CoatHangerAll.SetActive(true);
                             hangerFinished = true;
                             flowchart.ExecuteBlock("Wardrobe2");
+                        }
+                        else if(currentScene.name == "Senior_Room")
+                        {
+                            FuneralDress.SetActive(true);
                         }
                         break;
                     case "Shelf":
@@ -250,19 +276,25 @@ public class ClickHandler : MonoBehaviour
                         RoomStart.SetActive(false);
                         break;
                     case "Desk(DeskView)":
-                        if(isDeskLockOpen == false)
+                        if(isDeskLockOpen == false && currentScene.name == "Adult_Room")
                         {
                             Debug.Log("isDeskLockOpen = " + isDeskLockOpen);
                             DeskLock.SetActive(true);
                             flowchart.ExecuteBlock("Drawer1");
                         }
-                        else if (isDeskLockOpen == true)
+                        else if (isDeskLockOpen == true && currentScene.name == "Adult_Room")
                         {
                             Debug.Log("isDeskLockOpen = " + isDeskLockOpen);
                             DrawerView.SetActive(true);
                             DeskView.SetActive(false);
                             DrawerView.GetComponent<AudioSource>().Play();
                             flowchart.ExecuteBlock("Drawer3");
+                        }
+                        else
+                        {
+                            DrawerView.SetActive(true);
+                            DeskView.SetActive(false);
+                            DrawerView.GetComponent<AudioSource>().Play();
                         }
                         break;
                     case "DogMeds":
@@ -298,8 +330,17 @@ public class ClickHandler : MonoBehaviour
                         clickedObject.SetActive(false);
                         break;
                     case "DogBowl":
-                        DogBowlView.SetActive(true);
-                        RoomStart.SetActive(false);
+                        if (currentScene.name == "Senior_Room")
+                        {
+                            DogBowlView.SetActive(true);
+                            RoomStart.SetActive(false);
+                            flowchart.ExecuteBlock("DogBed1");
+                        }
+                        else
+                        {
+                            DogBowlView.SetActive(true);
+                            RoomStart.SetActive(false);
+                        }
                         break;
                     case "DogBowl(DogBowlView)":
                         clickedObject.GetComponent<DogBowlScript>().DogBowlFill();
@@ -389,6 +430,11 @@ public class ClickHandler : MonoBehaviour
         {
             flowchart.ExecuteBlock("TeenRoomEnd");
         }
+    }
+    public void SeniorRoomMusic()
+    {
+        if(!this.gameObject.GetComponent<AudioSource>().isPlaying)
+        this.gameObject.GetComponent<AudioSource>().Play();
     }
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float duration)
     {
