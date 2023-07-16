@@ -41,11 +41,11 @@ public class ClickHandler : MonoBehaviour
     public GameObject CoatHangerPink;
     public GameObject CoatHangerAll;
 
+    public bool hasDogMeds = false;
     public GameObject DeskLock;
     public TMP_InputField DeskCodeInputField;
     public string drawerCode = "1215";
     public bool isDeskLockOpen = false;
-
     public GameObject ComputerLock;
     public TMP_InputField ComputerInputField;
     public string computerCode = "462895";
@@ -130,7 +130,14 @@ public class ClickHandler : MonoBehaviour
                             DogToyChildEnd.SetActive(true);
                             flowchart.ExecuteBlock("ChildRoomEnd");
                         }
-                        flowchart.ExecuteBlock("Dog(Adult)");
+                        if(currentScene.name == "Adult_Room" && hasDogMeds == false)
+                        {
+                            flowchart.ExecuteBlock("Dog(Adult)1");
+                        }
+                        else if(currentScene.name == "Adult_Room" && hasDogMeds == true)
+                        {
+                            flowchart.ExecuteBlock("Dog(Adult)2");
+                        }
                         break;
                     case "Window":
                         WindowView.SetActive(true);
@@ -259,6 +266,7 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "DogMeds":
                         clickedObject.SetActive(false);
+                        hasDogMeds = true;
                         break;
                     case "VetNote":
                         VetNoteView.SetActive(true);
