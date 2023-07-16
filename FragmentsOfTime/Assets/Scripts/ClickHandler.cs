@@ -50,6 +50,7 @@ public class ClickHandler : MonoBehaviour
     public TMP_InputField ComputerInputField;
     public string computerCode = "462895";
     public bool isComputerLockOpen = false;
+    public GameObject ComputerObject;
 
 
     private void Start()
@@ -285,6 +286,7 @@ public class ClickHandler : MonoBehaviour
                         else if (isComputerLockOpen == true)
                         {
                             Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
+                            clickedObject.GetComponent<ComputerScript>().ComputerOpen();
                         }
                         break;
                     case "Broom(DeskView)":
@@ -373,6 +375,8 @@ public class ClickHandler : MonoBehaviour
             //DeskLock.GetComponent<AudioSource>().Play();
             GameObject.Find("BackButton").GetComponent<AudioSource>().Play();
             ComputerLock.SetActive(false);
+            ComputerObject.GetComponent<ComputerScript>().ComputerOpen();
+            flowchart.ExecuteBlock("Computer2");
         }
         else
         {
