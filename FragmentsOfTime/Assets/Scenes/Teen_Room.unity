@@ -2031,6 +2031,9 @@ MonoBehaviour:
   ComputerInputField: {fileID: 0}
   computerCode: 462895
   isComputerLockOpen: 0
+  ComputerObject: {fileID: 0}
+  FuneralDress: {fileID: 0}
+  dogToyParts: 0
 --- !u!114 &579282074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,7 +2760,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 418942802, guid: ed53a1b86592d0849a92728cd54fa037, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7086,6 +7089,9 @@ GameObject:
   - component: {fileID: 1636311611}
   - component: {fileID: 1636311610}
   - component: {fileID: 1636311609}
+  - component: {fileID: 1636311622}
+  - component: {fileID: 1636311621}
+  - component: {fileID: 1636311623}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -7216,6 +7222,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1636311590}
   commandList:
+  - {fileID: 1636311623}
   - {fileID: 1636311620}
   - {fileID: 1636311589}
   - {fileID: 1636311588}
@@ -7247,8 +7254,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1636311598}
-  selectedCommands: []
+  - {fileID: 1636311591}
+  selectedCommands:
+  - {fileID: 1636311623}
   variables: []
   description: 
   stepPause: 0
@@ -7511,7 +7519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 78.78992
+    x: 79.78992
     y: 228.74771
     width: 134.66666
     height: 40
@@ -7526,7 +7534,9 @@ MonoBehaviour:
   - {fileID: 1636311601}
   - {fileID: 1636311600}
   - {fileID: 1636311599}
+  - {fileID: 1636311622}
   - {fileID: 1636311613}
+  - {fileID: 1636311621}
   suppressAllAutoSelections: 0
 --- !u!114 &1636311604
 MonoBehaviour:
@@ -7995,6 +8005,65 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &1636311621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 31
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: Parkbench_Middle
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
+--- !u!114 &1636311622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 30
+  indentLevel: 0
+  duration: 2
+  targetAlpha: 1
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
+--- !u!114 &1636311623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 32
+  indentLevel: 0
+  duration: 2
+  targetAlpha: 0
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
 --- !u!1 &1657292677
 GameObject:
   m_ObjectHideFlags: 0
