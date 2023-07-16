@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class ClickHandler : MonoBehaviour
 {
     public Flowchart flowchart;
+    Scene currentScene;
 
     public GameObject RoomStart;
     public GameObject WindowView;
@@ -23,6 +24,11 @@ public class ClickHandler : MonoBehaviour
     public GameObject ComputerView;
 
     public GameObject ToyChest;
+    public GameObject DogToy; public GameObject DogToyChildEnd;
+
+    public bool hasKey = false;
+    public bool hasWand = false;
+    public bool hasDogToy = false;
 
     public int hangerTotal;
     public GameObject CoatHangerOrange;
@@ -56,8 +62,9 @@ public class ClickHandler : MonoBehaviour
         ComputerView.SetActive(false);
         ComputerLock.SetActive(false);
 
-        /*Scene currentScene = SceneManager.GetActiveScene();
-        switch(currentScene.name)
+        currentScene = SceneManager.GetActiveScene();
+        Debug.Log("current scene = " + currentScene.name);
+        /*switch(currentScene.name)
         {
             case "ChildRoom":
                 flowchart.ExecuteBlock("ChildRoomStart");
@@ -100,8 +107,23 @@ public class ClickHandler : MonoBehaviour
                 {
                     case "Dog":
                         clickedObject.GetComponent<AudioSource>().Play();
+                        if(currentScene.name == "ChildRoom")
+                        {
+                            DogBowlView.SetActive(true);
+                            RoomStart.SetActive(false);
+                        }
                         break;
                     case "Dog(DogBowlView)":
+                        if(currentScene.name == "ChildRoom" && hasDogToy == false)
+                        {
+                            clickedObject.GetComponent<AudioSource>().Play();
+                        }
+                        else if(currentScene.name == "ChildRoom" && hasDogToy == true)
+                        {
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            DogToyChildEnd.SetActive(true);
+                            flowchart.ExecuteBlock("ChildRoomEnd");
+                        }
                         flowchart.ExecuteBlock("Dog(Adult)");
                         break;
                     case "Window":
@@ -122,6 +144,7 @@ public class ClickHandler : MonoBehaviour
                     case "FairyWand":
                         Debug.Log("Fairy wand Obtained");
                         clickedObject.SetActive(false);
+                        hasWand = true;
                         flowchart.ExecuteBlock("FairyWand(Child)");
                         break;
                     case "CoatHanger(WindowView)":
@@ -143,13 +166,32 @@ public class ClickHandler : MonoBehaviour
                         ToyChestView.SetActive(true);
                         RoomStart.SetActive(false);
                         WardrobeView.SetActive(false);
-                        flowchart.ExecuteBlock("LockedChest");
                         break;
                     case "ToyChest(ToyChestView)":
-                        Debug.Log("Toy Chest Opened");
-                        clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
-                        clickedObject.GetComponent<AudioSource>().Play();
-                        ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                        if(hasKey == false && currentScene.name == "ChildRoom")
+                        {
+                            flowchart.ExecuteBlock("LockedChest");
+                        }
+                        else if(hasKey == true && currentScene.name == "ChildRoom")
+                        {
+                            Debug.Log("Toy Chest Opened");
+                            clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            DogToy.SetActive(true);
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                        }
+                        else
+                        {
+                            Debug.Log("Toy Chest Opened");
+                            clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                        }
+                        break;
+                    case "DogToy":
+                        clickedObject.SetActive(false);
+                        hasDogToy = true;
+                        flowchart.ExecuteBlock("DogToy(Child)");
                         break;
                     case "Wardrobe":
                         WardrobeView.SetActive(true);
@@ -164,12 +206,19 @@ public class ClickHandler : MonoBehaviour
                     case "Shelf":
                         ShelfView.SetActive(true);
                         RoomStart.SetActive(false);
-                        flowchart.ExecuteBlock("Shelf(Child)");
                         break;
                     case "Key(ShelfView)":
-                        Debug.Log("Key Obtained");
-                        clickedObject.SetActive(false);
-                        flowchart.ExecuteBlock("Key(Child)");
+                        if(hasWand == false)
+                        {
+                            flowchart.ExecuteBlock("Shelf(Child)");
+                        }
+                        else
+                        {
+                            Debug.Log("Key Obtained");
+                            hasKey = true;
+                            clickedObject.SetActive(false);
+                            flowchart.ExecuteBlock("Key(Child)");
+                        }
                         break;
                     case "Desk":
                         DeskView.SetActive(true);
