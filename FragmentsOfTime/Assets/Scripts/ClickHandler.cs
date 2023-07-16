@@ -53,7 +53,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject ComputerObject;
 
     public GameObject FuneralDress;
-
+    public int dogToyParts = 0;
 
     private void Start()
     {
@@ -153,6 +153,12 @@ public class ClickHandler : MonoBehaviour
                         WardrobeView.SetActive(false);
                         flowchart.ExecuteBlock("Window(Adult)");
                         break;
+                    case "Window(Senior)":
+                        WindowView.SetActive(true);
+                        RoomStart.SetActive(false);
+                        WardrobeView.SetActive(false);
+                        flowchart.ExecuteBlock("Window(Senior)");
+                        break;
                     case "FlowerPot(WindowView)":
                         Debug.Log("FlowerPot Clicked");
                         StartCoroutine(MoveObject(hit.collider.transform.Find("FairyWand"), new Vector3(6.9f, -6.16f, 0), 1f));
@@ -220,15 +226,23 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "DogToy(Ear)":
                         clickedObject.SetActive(false);
+                        dogToyParts += 1;
                         flowchart.ExecuteBlock("DogToy(Ear)");
                         break;
                     case "DogToy(Arm)":
                         clickedObject.SetActive(false);
+                        dogToyParts += 1;
                         flowchart.ExecuteBlock("DogToy(Arm)");
                         break;
                     case "DogToy(Leg)":
                         clickedObject.SetActive(false);
+                        dogToyParts += 1;
                         flowchart.ExecuteBlock("DogToy(Leg)");
+                        break;
+                    case "DogToy(Button)":
+                        clickedObject.SetActive(false);
+                        dogToyParts += 1;
+                        flowchart.ExecuteBlock("DogToy(Button)");
                         break;
                     case "Wardrobe":
                         WardrobeView.SetActive(true);
@@ -330,11 +344,17 @@ public class ClickHandler : MonoBehaviour
                         clickedObject.SetActive(false);
                         break;
                     case "DogBowl":
-                        if (currentScene.name == "Senior_Room")
+                        if (currentScene.name == "Senior_Room" && dogToyParts < 4)
                         {
                             DogBowlView.SetActive(true);
                             RoomStart.SetActive(false);
                             flowchart.ExecuteBlock("DogBed1");
+                        }
+                        else if(currentScene.name == "Senior_Room" && dogToyParts >= 4)
+                        {
+                            DogBowlView.SetActive(true);
+                            RoomStart.SetActive(false);
+                            flowchart.ExecuteBlock("SeniorRoomEnd");
                         }
                         else
                         {
