@@ -279,8 +279,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32205825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -90.00001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.41, y: -1.08, z: -90.00001}
+  m_LocalScale: {x: 0.31057, y: 0.31057, z: 0.31057}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 226925455}
@@ -327,8 +327,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 33e23e0e2be31e14ebd1897e8fea3491, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -370,18 +370,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 3.5733113, y: 4.75987}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 22.4, y: 22.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8.146623, y: 6.373605}
   m_EdgeRadius: 0
 --- !u!1 &32488677
 GameObject:
@@ -1180,6 +1180,7 @@ MonoBehaviour:
   ComputerObject: {fileID: 1325630767}
   FuneralDress: {fileID: 1565107844}
   dogToyParts: 0
+  DogToyBody: {fileID: 1775849063}
 --- !u!114 &206268186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1408,8 +1409,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278642577}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2000002, y: -4.8100004, z: -90.00025}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.92, y: -3.78, z: -90.00025}
+  m_LocalScale: {x: 0.31057, y: 0.31057, z: 0.31057}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1565107845}
@@ -1447,18 +1448,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -3.9618073, y: -2.1946702}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 22.4, y: 22.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8.9236145, y: 6.5294294}
   m_EdgeRadius: 0
 --- !u!212 &278642580
 SpriteRenderer:
@@ -1501,8 +1502,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.28228378, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 60b0087c5b45675469867c09911900af, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3313,8 +3314,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823300861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.09, y: 1.74, z: -175.50061}
-  m_LocalScale: {x: 1.28, y: 1.28, z: 1.28}
+  m_LocalPosition: {x: 1.53, y: 5.98, z: -175.50061}
+  m_LocalScale: {x: 0.42015997, y: 0.42015997, z: 0.42015997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 68888288}
@@ -3352,18 +3353,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14422989, y: -0.07211542}
+  m_Offset: {x: 2.0580459, y: -7.6693854}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 22.4, y: 22.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.980066, y: 16.585804}
+  m_Size: {x: 6.6006804, y: 8.118619}
   m_EdgeRadius: 0
 --- !u!212 &823300864
 SpriteRenderer:
@@ -3405,9 +3406,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3cb7c35a750699348a04840d1ae1be5e, type: 3}
-  m_Color: {r: 1, g: 0.9127427, b: 0, a: 1}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 316932a7c5dec674f905279995ed5b53, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3432,7 +3433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &927371268
 Transform:
   m_ObjectHideFlags: 0
@@ -4454,7 +4455,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 127.628815
     y: 103.45364
-    width: 147.33334
+    width: 145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4737,7 +4738,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 143.2973
     y: 152.62521
-    width: 102.66667
+    width: 101
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4887,7 +4888,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 134.2973
     y: 201.62521
-    width: 123.333336
+    width: 121
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4977,7 +4978,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 139.2973
     y: 247.62521
-    width: 126.666664
+    width: 125
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5067,7 +5068,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 140.2973
     y: 289.6252
-    width: 126.666664
+    width: 124
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5157,7 +5158,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 136.2973
     y: 330.6252
-    width: 142.66666
+    width: 140
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5267,7 +5268,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 138.2973
     y: 386.6252
-    width: 142
+    width: 139
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5359,7 +5360,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 433.2973
     y: 216.62521
-    width: 142
+    width: 139
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6480,7 +6481,7 @@ Transform:
   m_GameObject: {fileID: 1407243663}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.6031348, y: -3.1363087, z: 0}
-  m_LocalScale: {x: 4.020909, y: 4.020909, z: 4.020909}
+  m_LocalScale: {x: 0.32473263, y: 0.32473263, z: 0.32473263}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 120042883}
@@ -6527,7 +6528,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50fc9923749eb1243bf95457efc6810a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7941,7 +7942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1752383798
 Transform:
   m_ObjectHideFlags: 0
@@ -7973,6 +7974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775849064}
   - component: {fileID: 1775849065}
+  - component: {fileID: 1775849066}
   m_Layer: 0
   m_Name: DogToy(Body)
   m_TagString: Untagged
@@ -7988,8 +7990,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775849063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.95, y: 0, z: -90.00001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.61, y: 0.83, z: -90.00001}
+  m_LocalScale: {x: 0.18683, y: 0.18683, z: 0.18683}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1752383798}
@@ -8036,7 +8038,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50fc9923749eb1243bf95457efc6810a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8047,6 +8049,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1775849066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775849063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35ff192a4a4b8041a7fced1b49660d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DogToySprite:
+  - {fileID: 21300000, guid: 50fc9923749eb1243bf95457efc6810a, type: 3}
+  - {fileID: 21300000, guid: ab194521d5ceee74ba5071cc1ee82b66, type: 3}
+  image: {fileID: 1775849065}
 --- !u!1 &1808827603
 GameObject:
   m_ObjectHideFlags: 0
@@ -8845,7 +8863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992556826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.37, y: 5.02, z: -168.25865}
+  m_LocalPosition: {x: -4.37, y: 4.96, z: -168.25865}
   m_LocalScale: {x: 0.34593, y: 0.34593, z: 0.34593}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8888,7 +8906,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 22.4, y: 22.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8938,8 +8956,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.7902584, a: 1}
+  m_Sprite: {fileID: 21300000, guid: afc62de9568d8824cbf75fa56b6a7c82, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

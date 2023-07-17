@@ -2,9 +2,11 @@ using Fungus;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ClickHandler : MonoBehaviour
 {
@@ -54,6 +56,7 @@ public class ClickHandler : MonoBehaviour
 
     public GameObject FuneralDress;
     public int dogToyParts = 0;
+    public GameObject DogToyBody;
 
     private void Start()
     {
@@ -131,7 +134,9 @@ public class ClickHandler : MonoBehaviour
                         {
                             clickedObject.GetComponent<AudioSource>().Play();
                             DogToyChildEnd.SetActive(true);
+
                             flowchart.ExecuteBlock("ChildRoomEnd");
+                            
                         }
                         if(currentScene.name == "Adult_Room" && hasDogMeds == false)
                         {
@@ -354,6 +359,7 @@ public class ClickHandler : MonoBehaviour
                         {
                             DogBowlView.SetActive(true);
                             RoomStart.SetActive(false);
+                            DogToyBody.GetComponent<DogToyScript>().DogToyChange();
                             flowchart.ExecuteBlock("SeniorRoomEnd");
                         }
                         else
@@ -437,6 +443,7 @@ public class ClickHandler : MonoBehaviour
             GameObject.Find("BackButton").GetComponent<AudioSource>().Play();
             ComputerLock.SetActive(false);
             ComputerObject.GetComponent<ComputerScript>().ComputerOpen();
+            
             flowchart.ExecuteBlock("Computer2");
         }
         else
@@ -448,6 +455,7 @@ public class ClickHandler : MonoBehaviour
     {
         if(currentScene.name == "Teen_Room" && chestClosed == true && hangerFinished == true && bowlfilled == true) 
         {
+            
             flowchart.ExecuteBlock("TeenRoomEnd");
         }
     }

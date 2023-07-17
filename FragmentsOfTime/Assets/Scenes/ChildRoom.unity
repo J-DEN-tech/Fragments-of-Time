@@ -222,7 +222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &44524724
 Transform:
   m_ObjectHideFlags: 0
@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 93218767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.93, y: 2.13, z: 0.20691033}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.11612, y: 0.11612, z: 0.11612}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1149627626}
@@ -315,18 +315,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5774908, y: -1.4174757}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 22.4, y: 22.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 13.179804, y: 18.639719}
   m_EdgeRadius: 0
 --- !u!212 &93218770
 SpriteRenderer:
@@ -369,8 +369,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.09778087, g: 0.34176195, b: 0.9716981, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ab194521d5ceee74ba5071cc1ee82b66, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1342,7 +1342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &308207303
 Transform:
   m_ObjectHideFlags: 0
@@ -1436,6 +1436,7 @@ GameObject:
   - component: {fileID: 563913774}
   - component: {fileID: 563913773}
   - component: {fileID: 563913772}
+  - component: {fileID: 563913776}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1527,6 +1528,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &563913776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563913771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8802f3901f10a2469ae45f04afd78fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowchart: {fileID: 0}
+  childRoomDone: 0
+  teenRoomDone: 0
+  adultRoomDone: 0
+  seniorRoomDone: 0
 --- !u!1 &638106268
 GameObject:
   m_ObjectHideFlags: 0
@@ -4134,7 +4152,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 473.8334
     y: 76.769
-    width: 125.88652
+    width: 128.72339
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4161,7 +4179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 57.749466, y: 68.21612}
+  scrollPos: {x: 58.813297, y: 12.896957}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -4289,7 +4307,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 469.86682
     y: 23.295631
-    width: 138.65247
+    width: 141.48935
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4376,7 +4394,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 467.4956
     y: 125.70488
-    width: 142.9078
+    width: 144.68085
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4432,7 +4450,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 489.43567
     y: 180.7297
-    width: 109.57446
+    width: 111.702126
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4543,7 +4561,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 485.78058
     y: 235.94736
-    width: 116.666664
+    width: 119.14893
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4627,7 +4645,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 471.0562
     y: 286.56305
-    width: 148.58154
+    width: 151.06381
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4684,7 +4702,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 493.13354
     y: 337.94727
-    width: 109.57446
+    width: 111.702126
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4714,7 +4732,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 479.5249
     y: 385.27377
-    width: 132.97873
+    width: 135.10638
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4914,7 +4932,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 478.42123
     y: 432.84778
-    width: 132.2695
+    width: 135.10638
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5894,7 +5912,7 @@ Transform:
   m_GameObject: {fileID: 1175146087}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.232, y: -0.070402846, z: 0.15692088}
-  m_LocalScale: {x: 0.06518783, y: 0.06518783, z: 0.06518783}
+  m_LocalScale: {x: 0.0064170896, y: 0.0064170896, z: 0.0064170896}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 974667751}
@@ -5936,7 +5954,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 22.4, y: 22.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5986,8 +6004,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.09778087, g: 0.34176195, b: 0.9716981, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ab194521d5ceee74ba5071cc1ee82b66, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6676,6 +6694,7 @@ MonoBehaviour:
   ComputerObject: {fileID: 0}
   FuneralDress: {fileID: 0}
   dogToyParts: 0
+  DogToyBody: {fileID: 0}
 --- !u!4 &1652004220
 Transform:
   m_ObjectHideFlags: 0
