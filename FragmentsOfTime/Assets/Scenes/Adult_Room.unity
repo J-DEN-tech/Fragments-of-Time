@@ -6666,7 +6666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1370917367
 Transform:
   m_ObjectHideFlags: 0
@@ -8153,7 +8153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1657870307
 Transform:
   m_ObjectHideFlags: 0
@@ -8402,7 +8402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WardrobeSprite:
   - {fileID: -360183143, guid: 8f1148a88944f3f4a91f70e7c44e390d, type: 3}
-  - {fileID: 1379077898, guid: 8f1148a88944f3f4a91f70e7c44e390d, type: 3}
+  - {fileID: 822110664, guid: 8f1148a88944f3f4a91f70e7c44e390d, type: 3}
   image: {fileID: 1715020440}
 --- !u!61 &1715020439
 BoxCollider2D:
