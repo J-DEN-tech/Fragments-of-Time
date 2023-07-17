@@ -516,8 +516,7 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 273126577}
+  selectedBlocks: []
   selectedCommands: []
   variables: []
   description: 
@@ -1794,7 +1793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d0e7782353c684e82ae3c497136a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTime: 43
+  changeTime: 37
   sceneName: ChildRoom
   flowchart: {fileID: 273126578}
 --- !u!4 &1552792722
