@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChildRoom.unity
     guid: 1fe0030a0520c5242ae51037ca40cd0f
+  - enabled: 1
+    path: Assets/Scenes/Parkbench_Middle.unity
+    guid: 855f97367a2880146a246c9fae1d2038
+  - enabled: 1
+    path: Assets/Scenes/Teen_Room.unity
+    guid: 2b611445fa364b64b9b670af3d1511a8
+  - enabled: 1
+    path: Assets/Scenes/Adult_Room.unity
+    guid: a73856ebe98be5c4fb96dd1dc8860b99
+  - enabled: 1
+    path: Assets/Scenes/Senior_Room.unity
+    guid: 5f142fd1214944f408e67a8d0aeb37f2
+  - enabled: 1
+    path: Assets/Scenes/ParkBench_End.unity
+    guid: b0e2d0e48baed6940a488ec3af8f76cd
   m_configObjects: {}
