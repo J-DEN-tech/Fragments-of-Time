@@ -23,5 +23,13 @@ public class MenuManager : MonoBehaviour
         soundPlayer.Play();
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+    }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 10);
+    }
 }
