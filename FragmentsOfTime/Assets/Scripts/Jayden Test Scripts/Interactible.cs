@@ -3,27 +3,27 @@ using UnityEngine.EventSystems;
 
 public class Interactible : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public void OnPointerClick(PointerEventData eventData)
+    virtual public void OnPointerClick(PointerEventData eventData)
     {
         
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    virtual public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("success");
+        Debug.Log("Interacting with " + name);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    virtual public void OnPointerUp(PointerEventData eventData)
+    {
+
+    }
+
+    virtual public void OnPointerEnter(PointerEventData eventData)
     {
         
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
+    virtual public void OnPointerExit(PointerEventData eventData)
     {
         
     }
