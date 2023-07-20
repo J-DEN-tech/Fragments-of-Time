@@ -375,9 +375,17 @@ public class ClickHandler : MonoBehaviour
                         flowchart.ExecuteBlock("DogBowl(Teen)");
                         break;
                     case "Bed":
-                        BedView.SetActive(true);
-                        RoomStart.SetActive(false);
-                        flowchart.ExecuteBlock("Bed(Child)");
+                        if(currentScene.name == "ChildRoom")
+                        {
+                            BedView.SetActive(true);
+                            RoomStart.SetActive(false);
+                            flowchart.ExecuteBlock("Bed(Child)");
+                        }
+                        else
+                        {
+                            BedView.SetActive(true);
+                            RoomStart.SetActive(false);
+                        }
                         break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
