@@ -189,6 +189,9 @@ public class ClickHandler : MonoBehaviour
                         hangerTotal+= 1;
                         CoatHangerPink.SetActive(false);
                         break;
+                    case "Tea_Full":
+                        clickedObject.GetComponent<TeaScript>().TeaDrink();
+                        break;
                     case "ToyChest":
                         ToyChestView.SetActive(true);
                         RoomStart.SetActive(false);
