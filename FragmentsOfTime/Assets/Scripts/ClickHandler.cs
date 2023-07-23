@@ -256,7 +256,10 @@ public class ClickHandler : MonoBehaviour
                         WardrobeView.SetActive(true);
                         RoomStart.SetActive(false);
                         BedView.SetActive(false);
-                        flowchart.ExecuteBlock("Wardrobe(Child)");
+                        if(currentScene.name == "ChildRoom")
+                        {
+                            flowchart.ExecuteBlock("Wardrobe(Child)");
+                        }
                         break;
                     case "Wardrobe(WardrobeView)":
                         clickedObject.GetComponent<WardrobeScript>().WardrobeOpen();
