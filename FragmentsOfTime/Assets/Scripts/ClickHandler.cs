@@ -48,6 +48,14 @@ public class ClickHandler : MonoBehaviour
     public GameObject CoatHangerBlue;
     public GameObject CoatHangerPink;
     public GameObject CoatHangerAll;
+    public GameObject emptyHangerblue;
+    public GameObject emptyHangerPink;
+    public GameObject emptyHangerOrange;
+
+    public GameObject DogBowl;
+    public GameObject Bottle;
+    private bool wardrobeColliderOff = false;
+    public GameObject WardrobeCollider;
 
     public bool hasDogMeds = false;
     public bool hasVetNote;
@@ -194,15 +202,21 @@ public class ClickHandler : MonoBehaviour
                         CoatHangerOrange.SetActive(false);
                         hangerTotal += 1;
                         flowchart.ExecuteBlock("CoatHangerOrange");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "HangerOrange", picture = inventory.GetComponent<InventoryManager>().hangerOrangeSprite });
                         break;
                     case "CoatHangerBlue":
                         clickedObject.SetActive(false);
                         hangerTotal += 1;
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "HangerBlue", picture = inventory.GetComponent<InventoryManager>().hangerBlueSprite });
                         break;
                     case "CoatHangerPink":
                         clickedObject.SetActive(false);
                         hangerTotal += 1;
                         CoatHangerPink.SetActive(false);
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "HangerPink", picture = inventory.GetComponent<InventoryManager>().hangerPinkSprite });
                         break;
                     case "Tea_Full":
                         clickedObject.GetComponent<TeaScript>().TeaDrink();
@@ -284,16 +298,11 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "Wardrobe(WardrobeView)":
                         clickedObject.GetComponent<WardrobeScript>().WardrobeOpen();
+                        wardrobeColliderOff = true;
                         clickedObject.GetComponent<AudioSource>().Play();
                         if (currentScene.name == "Teen_Room" && hangerTotal < 3)
                         {
                             flowchart.ExecuteBlock("Wardrobe1");
-                        }
-                        else if (currentScene.name == "Teen_Room" && hangerTotal >= 3)
-                        {
-                            CoatHangerAll.SetActive(true);
-                            hangerFinished = true;
-                            flowchart.ExecuteBlock("Wardrobe2");
                         }
                         else if (currentScene.name == "Senior_Room")
                         {
@@ -384,7 +393,10 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "Bottle(DeskView)":
                         Debug.Log("Bottle Obtained");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                                new Item { name = "Bottle", picture = inventory.GetComponent<InventoryManager>().bottleSprite });
                         clickedObject.SetActive(false);
+                        Bottle.SetActive(false);
                         break;
                     case "DogBowl":
                         if (currentScene.name == "Senior_Room" && dogToyParts < 4)
@@ -407,10 +419,11 @@ public class ClickHandler : MonoBehaviour
                         }
                         break;
                     case "DogBowl(DogBowlView)":
-                        clickedObject.GetComponent<DogBowlScript>().DogBowlFill();
+                        /*clickedObject.GetComponent<DogBowlScript>().DogBowlFill();
                         clickedObject.GetComponent<AudioSource>().Play();
                         bowlfilled = true;
                         flowchart.ExecuteBlock("DogBowl(Teen)");
+                        DogBowl.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<DogBowlScript>().DogBowlSprite[1];*/
                         break;
                     case "Bed":
                         if(currentScene.name == "ChildRoom")
@@ -442,6 +455,15 @@ public class ClickHandler : MonoBehaviour
         {
             flowchart.ExecuteBlock("SeniorRoomEnd");
             dogToyParts = 0;
+        }
+        if (wardrobeColliderOff == true)
+        {
+            WardrobeCollider.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        if (emptyHangerOrange.activeInHierarchy && emptyHangerblue.activeInHierarchy && emptyHangerPink.activeInHierarchy == true && hangerFinished == false)
+        {
+            hangerFinished = true;
+            flowchart.ExecuteBlock("Wardrobe2");
         }
     }
     public void BackButton()

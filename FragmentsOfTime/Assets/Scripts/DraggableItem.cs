@@ -1,4 +1,5 @@
 using Fungus;
+//using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -62,6 +63,38 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 Debug.Log("Hit " + hit.collider.gameObject.name);
                 switch (receivingObject.name)
                 {
+                    case "DogBowl(DogBowlView)":
+                        if (item.name == "Bottle")
+                        {
+                            receivingObject.GetComponent<DogBowlScript>().DogBowlFill();
+                            receivingObject.GetComponent<AudioSource>().Play();
+                            ClickHandler.instance.bowlfilled = true;
+                            ClickHandler.instance.flowchart.ExecuteBlock("DogBowl(Teen)");
+                            ClickHandler.instance.DogBowl.GetComponent<SpriteRenderer>().sprite = receivingObject.GetComponent<DogBowlScript>().DogBowlSprite[1];
+                            InventoryManager.instance.UseItem(this.item);
+                        }
+                        break;
+                    case "EmptyBlue":
+                        if (item.name == "HangerBlue")
+                        {
+                            ClickHandler.instance.emptyHangerblue.SetActive(true);
+                            InventoryManager.instance.UseItem(this.item);
+                        }
+                        break;
+                    case "EmptyPink":
+                        if (item.name == "HangerPink")
+                        {
+                            ClickHandler.instance.emptyHangerPink.SetActive(true);
+                            InventoryManager.instance.UseItem(this.item);
+                        }
+                        break;
+                    case "EmptyOrange":
+                        if (item.name == "HangerOrange")
+                        {
+                            ClickHandler.instance.emptyHangerOrange.SetActive(true);
+                            InventoryManager.instance.UseItem(this.item);
+                        }
+                        break;
                     case "Dog(DogBowlView)":
                         if (item.name == "DogMeds")
                         {

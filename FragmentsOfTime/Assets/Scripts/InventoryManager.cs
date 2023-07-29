@@ -118,10 +118,14 @@ public class InventoryManager : MonoBehaviour
         }*/
         if (itemButtonDictionary.ContainsKey(item))
         {
-            Destroy(itemButtonDictionary[item]); // Destroy the button associated with the item
+            GameObject itemButton = itemButtonDictionary[item];
+            Destroy(itemButton); // Destroy the button associated with the item
+            itemButtons.Remove(itemButton); // Remove the button from the itemButtons list
             itemButtonDictionary.Remove(item); // Remove the button from the dictionary
             items.Remove(item); // Remove the item from the items list
-
+            //Destroy(itemButtonDictionary[item]); // Destroy the button associated with the item
+            //itemButtonDictionary.Remove(item); // Remove the button from the dictionary
+            //items.Remove(item); // Remove the item from the items list
             // No need to call UpdateInventory() here
         }
         else
