@@ -2055,7 +2055,7 @@ MonoBehaviour:
     booleanVal: 1
   duration:
     floatRef: {fileID: 0}
-    floatVal: 5
+    floatVal: 8
   fadeMode: 0
   targetColor:
     colorRef: {fileID: 0}

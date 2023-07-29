@@ -152,19 +152,21 @@ public class ClickHandler : MonoBehaviour
                             RoomStart.SetActive(false);
                         }
                         break;
-                    case "Dog(DogBowlView)":
+                    case "Dog(DogBowlView)(Child)":
                         if (currentScene.name == "ChildRoom" && hasDogToy == false)
                         {
                             clickedObject.GetComponent<AudioSource>().Play();
                         }
                         else if (currentScene.name == "ChildRoom" && hasDogToy == true)
                         {
+                            /*
                             clickedObject.GetComponent<AudioSource>().Play();
                             DogToyChildEnd.SetActive(true);
-
                             flowchart.ExecuteBlock("ChildRoomEnd");
-
+                            */
                         }
+                        break;
+                    case "Dog(DogBowlView)":
                         if (currentScene.name == "Adult_Room" && hasDogMeds == false)
                         {
                             flowchart.ExecuteBlock("Dog(Adult)1");
@@ -196,6 +198,8 @@ public class ClickHandler : MonoBehaviour
                         clickedObject.SetActive(false);
                         hasWand = true;
                         flowchart.ExecuteBlock("FairyWand(Child)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "FairyWand", picture = inventory.GetComponent<InventoryManager>().wandSprite });
                         break;
                     case "CoatHanger(WindowView)":
                         clickedObject.SetActive(false);
@@ -233,11 +237,13 @@ public class ClickHandler : MonoBehaviour
                         }
                         else if (hasKey == true && currentScene.name == "ChildRoom")
                         {
+                            /*
                             Debug.Log("Toy Chest Opened");
                             clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
                             DogToy.SetActive(true);
                             clickedObject.GetComponent<AudioSource>().Play();
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                            */
                         }
                         else if (currentScene.name == "Senior_Room")
                         {
@@ -262,6 +268,8 @@ public class ClickHandler : MonoBehaviour
                         clickedObject.SetActive(false);
                         hasDogToy = true;
                         flowchart.ExecuteBlock("DogToy(Child)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy", picture = inventory.GetComponent<InventoryManager>().dogToySprite });
                         break;
                     case "DogToy(Ear)":
                         clickedObject.SetActive(false);
@@ -321,10 +329,12 @@ public class ClickHandler : MonoBehaviour
                         }
                         else
                         {
+                            /*
                             Debug.Log("Key Obtained");
                             hasKey = true;
                             clickedObject.SetActive(false);
                             flowchart.ExecuteBlock("Key(Child)");
+                            */
                         }
                         break;
                     case "Desk":
@@ -451,16 +461,16 @@ public class ClickHandler : MonoBehaviour
 
             }
         }
-        if (dogToyParts >= 4)
+        if (currentScene.name == "Senior_Room" && dogToyParts >= 4)
         {
             flowchart.ExecuteBlock("SeniorRoomEnd");
             dogToyParts = 0;
         }
-        if (wardrobeColliderOff == true)
+        if (currentScene.name == "Teen_Room" && wardrobeColliderOff == true)
         {
             WardrobeCollider.GetComponent<BoxCollider2D>().enabled = false;
         }
-        if (emptyHangerOrange.activeInHierarchy && emptyHangerblue.activeInHierarchy && emptyHangerPink.activeInHierarchy == true && hangerFinished == false)
+        if (currentScene.name == "Teen_Room" && emptyHangerOrange.activeInHierarchy && emptyHangerblue.activeInHierarchy && emptyHangerPink.activeInHierarchy == true && hangerFinished == false)
         {
             hangerFinished = true;
             flowchart.ExecuteBlock("Wardrobe2");
@@ -497,6 +507,15 @@ public class ClickHandler : MonoBehaviour
         {
             Debug.Log("No previous screen, or button not working");
         }
+    }
+
+    public void GetKey()
+    {
+        Debug.Log("Key Obtained");
+        hasKey = true;
+        flowchart.ExecuteBlock("Key(Child)");
+        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+            new Item { name = "Key", picture = inventory.GetComponent<InventoryManager>().keySprite });
     }
     public void DeskCode()
     {

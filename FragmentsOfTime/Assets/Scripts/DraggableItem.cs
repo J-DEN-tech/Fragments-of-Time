@@ -63,6 +63,36 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 Debug.Log("Hit " + hit.collider.gameObject.name);
                 switch (receivingObject.name)
                 {
+                    // // // Child Room
+
+                    case "Key(ShelfView)":
+                        if (item.name == "FairyWand")
+                        {
+                            receivingObject.SetActive(false);
+                            ClickHandler.instance.GetKey();
+                        }
+                        break;
+                    case "ToyChest(ToyChestView)":
+                        if (item.name == "Key")
+                        {
+                            Debug.Log("Toy Chest Opened");
+                            receivingObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            ClickHandler.instance.DogToy.SetActive(true);
+                            receivingObject.GetComponent<AudioSource>().Play();
+                            ClickHandler.instance.ToyChest.GetComponent<SpriteRenderer>().sprite = receivingObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                        }
+                        break;
+                    case "Dog(DogBowlView)(Child)":
+                        if (item.name == "DogToy")
+                        {
+                            receivingObject.GetComponent<AudioSource>().Play();
+                            ClickHandler.instance.DogToyChildEnd.SetActive(true);
+                            ClickHandler.instance.flowchart.ExecuteBlock("ChildRoomEnd");
+                        }
+                        break;
+
+                    // // // Teen Room
+
                     case "DogBowl(DogBowlView)":
                         if (item.name == "Bottle")
                         {
@@ -95,6 +125,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             InventoryManager.instance.UseItem(this.item);
                         }
                         break;
+
+                    // // // Adult Room
+
                     case "Dog(DogBowlView)":
                         if (item.name == "DogMeds")
                         {
@@ -103,6 +136,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             ClickHandler.instance.flowchart.ExecuteBlock("Dog(Adult)2");
                         }
                         break;
+
+                    // // // Senior Room
+
                     case "DogToy(EmptyArm)":
                         if(item.name == "DogToy(Arm)")
                         {
