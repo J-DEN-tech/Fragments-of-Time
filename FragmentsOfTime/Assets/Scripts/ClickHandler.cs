@@ -13,6 +13,8 @@ public class ClickHandler : MonoBehaviour
     public Flowchart flowchart;
     Scene currentScene;
 
+    public GameObject inventory;
+
     public GameObject RoomStart;
     public GameObject WindowView;
     public GameObject ToyChestView;
@@ -225,6 +227,8 @@ public class ClickHandler : MonoBehaviour
                             clickedObject.GetComponent<AudioSource>().Play();
                             chestClosed = true;
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                            
+
                         }
                         break;
                     case "DogToy":
@@ -236,21 +240,29 @@ public class ClickHandler : MonoBehaviour
                         clickedObject.SetActive(false);
                         dogToyParts += 1;
                         flowchart.ExecuteBlock("DogToy(Ear)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item {name = "DogToy(Ear)", picture = inventory.GetComponent<InventoryManager>().dogToyEarSprite});
                         break;
                     case "DogToy(Arm)":
                         clickedObject.SetActive(false);
                         dogToyParts += 1;
                         flowchart.ExecuteBlock("DogToy(Arm)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy(Arm)", picture = inventory.GetComponent<InventoryManager>().dogToyArmSprite });
                         break;
                     case "DogToy(Leg)":
                         clickedObject.SetActive(false);
                         dogToyParts += 1;
                         flowchart.ExecuteBlock("DogToy(Leg)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy(Leg)", picture = inventory.GetComponent<InventoryManager>().dogToyLegSprite });
                         break;
                     case "DogToy(Button)":
                         clickedObject.SetActive(false);
                         dogToyParts += 1;
                         flowchart.ExecuteBlock("DogToy(Button)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy(Button)", picture = inventory.GetComponent<InventoryManager>().dogToyButtonSprite });
                         break;
                     case "Wardrobe":
                         WardrobeView.SetActive(true);
@@ -282,6 +294,7 @@ public class ClickHandler : MonoBehaviour
                     case "Shelf":
                         ShelfView.SetActive(true);
                         RoomStart.SetActive(false);
+                        
                         break;
                     case "Key(ShelfView)":
                         if(hasWand == false)
