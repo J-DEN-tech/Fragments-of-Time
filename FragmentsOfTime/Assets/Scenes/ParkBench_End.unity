@@ -2093,7 +2093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: Stranger
-  nameColor: {r: 0, g: 0, b: 0, a: 1}
+  nameColor: {r: 0.44313726, g: 0.15686275, b: 0.011764706, a: 1}
   soundEffect: {fileID: 0}
   portraits: []
   portraitsFace: 0

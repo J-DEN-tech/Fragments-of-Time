@@ -1414,6 +1414,7 @@ MonoBehaviour:
   DeskView: {fileID: 1127820143}
   DogBowlView: {fileID: 1752383797}
   BedView: {fileID: 740239217}
+  ClockView: {fileID: 0}
   DrawerView: {fileID: 68888286}
   VetNoteView: {fileID: 1877264969}
   ComputerView: {fileID: 752928537}
@@ -1432,6 +1433,7 @@ MonoBehaviour:
   CoatHangerPink: {fileID: 0}
   CoatHangerAll: {fileID: 0}
   hasDogMeds: 0
+  hasVetNote: 0
   DeskLock: {fileID: 1030964423}
   DeskCodeInputField: {fileID: 0}
   drawerCode: 1215
@@ -4599,7 +4601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: Boba
-  nameColor: {r: 0, g: 0, b: 0, a: 1}
+  nameColor: {r: 0.44313726, g: 0.15686275, b: 0.011764706, a: 1}
   soundEffect: {fileID: 0}
   portraits: []
   portraitsFace: 0
@@ -5131,10 +5133,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1052089016}
-  selectedCommands:
-  - {fileID: 1052089012}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 1052089026}
   description: 
@@ -5925,7 +5925,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &1052089017
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5952,7 +5952,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1052089018
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5969,7 +5969,7 @@ MonoBehaviour:
   delay: 0
 --- !u!114 &1052089019
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6015,7 +6015,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &1052089021
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6034,7 +6034,7 @@ MonoBehaviour:
   sceneNameOLD: 
 --- !u!114 &1052089022
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6054,7 +6054,7 @@ MonoBehaviour:
   fadeTweenType: 4
 --- !u!114 &1052089023
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6206,7 +6206,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &1052089024
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6220,7 +6220,7 @@ MonoBehaviour:
   indentLevel: 0
 --- !u!114 &1052089025
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6463,7 +6463,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &1052089026
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6478,7 +6478,7 @@ MonoBehaviour:
   value: 0
 --- !u!114 &1052089027
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11356,6 +11356,7 @@ MonoBehaviour:
   hangerBlueSprite: {fileID: 0}
   hangerPinkSprite: {fileID: 0}
   dogMedSprite: {fileID: 0}
+  vetNoteSprite: {fileID: 0}
   dogToyArmSprite: {fileID: 21300000, guid: 5af6c525f2c633645b14906ee537c278, type: 3}
   dogToyLegSprite: {fileID: 21300000, guid: 7fa55035048821447aeb37efdf904d8b, type: 3}
   dogToyEarSprite: {fileID: 21300000, guid: ce6f823eeb313154987920c80df85df3, type: 3}

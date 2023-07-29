@@ -1677,7 +1677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: Boba
-  nameColor: {r: 0.3301887, g: 0.16067019, b: 0.064376384, a: 1}
+  nameColor: {r: 0.44313726, g: 0.15686275, b: 0.011764706, a: 1}
   soundEffect: {fileID: 0}
   portraits: []
   portraitsFace: 0
@@ -7038,6 +7038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowchart: {fileID: 1110732782}
+  inventory: {fileID: 0}
   RoomStart: {fileID: 44524723}
   WindowView: {fileID: 984604717}
   ToyChestView: {fileID: 1149627625}
@@ -7046,6 +7047,7 @@ MonoBehaviour:
   DeskView: {fileID: 1974228142}
   DogBowlView: {fileID: 308207302}
   BedView: {fileID: 878887339}
+  ClockView: {fileID: 0}
   DrawerView: {fileID: 2062973785}
   VetNoteView: {fileID: 334542312}
   ComputerView: {fileID: 446794660}
@@ -7064,6 +7066,7 @@ MonoBehaviour:
   CoatHangerPink: {fileID: 0}
   CoatHangerAll: {fileID: 0}
   hasDogMeds: 0
+  hasVetNote: 0
   DeskLock: {fileID: 2080368202}
   DeskCodeInputField: {fileID: 0}
   drawerCode: 1215

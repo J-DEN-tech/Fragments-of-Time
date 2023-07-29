@@ -26,6 +26,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject DeskView;
     public GameObject DogBowlView;
     public GameObject BedView;
+    public GameObject ClockView;
     public GameObject DrawerView;
     public GameObject VetNoteView;
     public GameObject ComputerView;
@@ -49,6 +50,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject CoatHangerAll;
 
     public bool hasDogMeds = false;
+    public bool hasVetNote;
     public GameObject DeskLock;
     public TMP_InputField DeskCodeInputField;
     public string drawerCode = "1215";
@@ -84,6 +86,7 @@ public class ClickHandler : MonoBehaviour
         DeskView.SetActive(false);
         DogBowlView.SetActive(false);
         BedView.SetActive(false);
+        ClockView.SetActive(false);
         DrawerView.SetActive(false);
         DeskLock.SetActive(false);
         VetNoteView.SetActive(false);
@@ -157,10 +160,6 @@ public class ClickHandler : MonoBehaviour
                         if (currentScene.name == "Adult_Room" && hasDogMeds == false)
                         {
                             flowchart.ExecuteBlock("Dog(Adult)1");
-                        }
-                        else if (currentScene.name == "Adult_Room" && hasDogMeds == true)
-                        {
-                            flowchart.ExecuteBlock("Dog(Adult)2");
                         }
                         break;
                     case "Window":
@@ -347,12 +346,20 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "DogMeds":
                         clickedObject.SetActive(false);
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogMeds", picture = inventory.GetComponent<InventoryManager>().dogMedSprite });
                         hasDogMeds = true;
                         break;
                     case "VetNote":
                         VetNoteView.SetActive(true);
-                        DrawerView.SetActive(false);
+                        //DrawerView.SetActive(false);
                         flowchart.ExecuteBlock("VetNote");
+                        if(!hasVetNote)
+                        {
+                            inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                                new Item { name = "VetNote", picture = inventory.GetComponent<InventoryManager>().vetNoteSprite });
+                            hasVetNote= true;
+                        }
                         break;
                     case "Computer":
                         ComputerView.SetActive(true);
@@ -366,6 +373,8 @@ public class ClickHandler : MonoBehaviour
                         else if (isComputerLockOpen == true)
                         {
                             Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
+                            
+                            flowchart.ExecuteBlock("Computer2");
                             clickedObject.GetComponent<ComputerScript>().ComputerOpen();
                         }
                         break;
@@ -416,6 +425,10 @@ public class ClickHandler : MonoBehaviour
                             RoomStart.SetActive(false);
                         }
                         break;
+                    case "Clock":
+                        ClockView.SetActive(true);
+                        RoomStart.SetActive(false);
+                        break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
                         // Perform default action
@@ -433,7 +446,11 @@ public class ClickHandler : MonoBehaviour
     }
     public void BackButton()
     {
-        if(!RoomStart.activeInHierarchy)
+        if (VetNoteView.activeInHierarchy)
+        {
+            VetNoteView.SetActive(false);
+        }
+        else if(!RoomStart.activeInHierarchy)
         {
             RoomStart.SetActive(true);
             WindowView.SetActive(false);
@@ -443,6 +460,7 @@ public class ClickHandler : MonoBehaviour
             DeskView.SetActive(false);
             DogBowlView.SetActive(false);
             BedView.SetActive(false);
+            ClockView.SetActive(false);
             DrawerView.SetActive(false);
             DeskLock.SetActive(false);
             VetNoteView.SetActive(false);
@@ -452,6 +470,7 @@ public class ClickHandler : MonoBehaviour
             TeenRoomEnd();
 
         }
+
         else
         {
             Debug.Log("No previous screen, or button not working");

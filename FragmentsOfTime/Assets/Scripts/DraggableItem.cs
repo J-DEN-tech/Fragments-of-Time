@@ -1,3 +1,4 @@
+using Fungus;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private GameObject dragObject;
     private RectTransform rectTransform;
     public Item item;
-    
+    //public Flowchart flowchart;
 
     private void Awake()
     {
@@ -61,6 +62,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 Debug.Log("Hit " + hit.collider.gameObject.name);
                 switch (receivingObject.name)
                 {
+                    case "Dog(DogBowlView)":
+                        if (item.name == "DogMeds")
+                        {
+                            Debug.Log("Meds were dropped");
+                            InventoryManager.instance.UseItem(this.item);
+                            ClickHandler.instance.flowchart.ExecuteBlock("Dog(Adult)2");
+                        }
+                        break;
                     case "DogToy(EmptyArm)":
                         if(item.name == "DogToy(Arm)")
                         {
@@ -96,11 +105,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             receivingObject.GetComponent<SpriteRenderer>().enabled = true;
                             ClickHandler.instance.dogToyParts += 1;
                         }
-                        break;
-                    case "Object2":
-                        // Do something specific to Object2
-                        Debug.Log("Item dropped on Object2");
-                        InventoryManager.instance.UseItem(this.item);
                         break;
                     default:
                         Debug.Log("Item dropped on an unrecognized object");
