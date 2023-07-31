@@ -244,6 +244,7 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "Tea_Full":
                         clickedObject.GetComponent<TeaScript>().TeaDrink();
+                        clickedObject.GetComponent<AudioSource>().Play();
                         break;
                     case "ToyChest":
                         ToyChestView.SetActive(true);
