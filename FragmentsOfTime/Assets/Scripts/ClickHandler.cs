@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
+using JetBrains.Annotations;
 
 public class ClickHandler : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ClickHandler : MonoBehaviour
     Scene currentScene;
 
     public GameObject inventory;
+    
 
     public GameObject RoomStart;
     public GameObject WindowView;
@@ -30,6 +32,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject DrawerView;
     public GameObject VetNoteView;
     public GameObject ComputerView;
+    public GameObject ChoreListView;
 
 
     public GameObject ToyChest;
@@ -73,6 +76,9 @@ public class ClickHandler : MonoBehaviour
     public int dogToyParts = 0;
     public GameObject DogToyBody;
 
+    private bool temp1 = false;
+    private bool temp2 = false;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -100,6 +106,8 @@ public class ClickHandler : MonoBehaviour
         VetNoteView.SetActive(false);
         ComputerView.SetActive(false);
         ComputerLock.SetActive(false);
+        ChoreListView.SetActive(false);
+        
 
         currentScene = SceneManager.GetActiveScene();
         Debug.Log("current scene = " + currentScene.name);
@@ -127,6 +135,12 @@ public class ClickHandler : MonoBehaviour
         else
         {
             Debug.Log("ComputerCodeInputField is assigned.");
+        }
+
+        if (currentScene.name == "Teen_Room")
+        {
+            inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "ChoreList", picture = inventory.GetComponent<InventoryManager>().choreListSprite });
         }
     }
 
@@ -466,18 +480,35 @@ public class ClickHandler : MonoBehaviour
             flowchart.ExecuteBlock("SeniorRoomEnd");
             dogToyParts = 0;
         }
+
         if (currentScene.name == "Teen_Room" && wardrobeColliderOff == true)
         {
             WardrobeCollider.GetComponent<BoxCollider2D>().enabled = false;
         }
+
         if (currentScene.name == "Teen_Room" && emptyHangerOrange.activeInHierarchy && emptyHangerblue.activeInHierarchy && emptyHangerPink.activeInHierarchy == true && hangerFinished == false)
         {
             hangerFinished = true;
             flowchart.ExecuteBlock("Wardrobe2");
         }
+
+        
+        if (ChoreListView.activeInHierarchy && temp1 == false)
+        {
+            GetComponent<ColliderToggler>().DisableColliders();
+            temp1 = true;
+            temp2 = true;
+        }
+        else if (!ChoreListView.activeInHierarchy && temp2 == true)
+        {
+            GetComponent<ColliderToggler>().EnableColliders();
+            temp1 = false;
+            temp2 = false;
+        }
     }
     public void BackButton()
     {
+        Debug.Log("Back button clicked");
         if (VetNoteView.activeInHierarchy)
         {
             VetNoteView.SetActive(false);
@@ -498,6 +529,7 @@ public class ClickHandler : MonoBehaviour
             VetNoteView.SetActive(false);
             ComputerView.SetActive(false);
             ComputerLock.SetActive(false);
+            ChoreListView.SetActive(false);
             Debug.Log("Went back to previous screen");
             TeenRoomEnd();
 

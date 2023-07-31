@@ -187,4 +187,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
+
+    public void ChoreList()
+    {
+        if (item.name == "ChoreList")
+        {
+            ClickHandler.instance.ChoreListView.SetActive(true);
+        }
+        /*
+        else
+        {
+            Debug.Log("not chore list");
+        }
+        */
+    }
 }

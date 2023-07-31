@@ -1418,6 +1418,7 @@ MonoBehaviour:
   DrawerView: {fileID: 68888286}
   VetNoteView: {fileID: 1877264969}
   ComputerView: {fileID: 752928537}
+  ChoreListView: {fileID: 1017888803}
   ToyChest: {fileID: 1025820306}
   DogToy: {fileID: 32205825}
   DogToyChildEnd: {fileID: 0}
@@ -1432,6 +1433,12 @@ MonoBehaviour:
   CoatHangerBlue: {fileID: 0}
   CoatHangerPink: {fileID: 0}
   CoatHangerAll: {fileID: 0}
+  emptyHangerblue: {fileID: 0}
+  emptyHangerPink: {fileID: 0}
+  emptyHangerOrange: {fileID: 0}
+  DogBowl: {fileID: 0}
+  Bottle: {fileID: 0}
+  WardrobeCollider: {fileID: 0}
   hasDogMeds: 0
   hasVetNote: 0
   DeskLock: {fileID: 1030964423}
@@ -1458,6 +1465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6340e1821fef2a148927d65687348f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  areCollidersOn: 1
 --- !u!4 &206268187
 Transform:
   m_ObjectHideFlags: 0
@@ -4052,7 +4060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &927371268
 Transform:
   m_ObjectHideFlags: 0
@@ -4720,6 +4728,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1017888803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017888804}
+  m_Layer: 0
+  m_Name: ChoreListView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1017888804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017888803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 534.2992, y: 306.04926, z: 4.028144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1025820306
 GameObject:
@@ -9728,7 +9767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1752383798
 Transform:
   m_ObjectHideFlags: 0
@@ -11382,6 +11421,8 @@ MonoBehaviour:
   itemListParent: {fileID: 1365706305}
   wandSprite: {fileID: 21300000, guid: 8a73efa6e5602734eb1ac7caf35fd7db, type: 3}
   keySprite: {fileID: 21300000, guid: d26c6e7ce5fa71f44910aee637e92f56, type: 3}
+  dogToySprite: {fileID: 0}
+  choreListSprite: {fileID: 0}
   bottleSprite: {fileID: 2070196110, guid: 90a30979e3f31bb4b8644ad43682155b, type: 3}
   hangerOrangeSprite: {fileID: 0}
   hangerBlueSprite: {fileID: 0}
