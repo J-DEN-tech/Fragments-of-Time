@@ -251,7 +251,7 @@ public class ClickHandler : MonoBehaviour
                         WardrobeView.SetActive(false);
                         break;
                     case "ToyChest(ToyChestView)":
-                        if (chestClosed == false)
+                        if (chestClosed == false && currentScene.name != "Teen_Room")
                         {
                             InsideChestView.SetActive(true);
                             ToyChestView.SetActive(false);
@@ -277,6 +277,14 @@ public class ClickHandler : MonoBehaviour
                             clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
                             DogToy.SetActive(true);
                             clickedObject.GetComponent<AudioSource>().Play();
+                            ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                        }
+                        else if(currentScene.name == "Teen_Room")
+                        {
+                            Debug.Log("Toy Chest Opened");
+                            clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            chestClosed = true;
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
                         }
                         else
