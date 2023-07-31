@@ -139,7 +139,7 @@ public class ClickHandler : MonoBehaviour
             Debug.Log("ComputerCodeInputField is assigned.");
         }
 
-        if (currentScene.name == "ChildRoom")
+        if (currentScene.name == "ChildRoom" || currentScene.name == "Senior_Room")
         {
             chestClosed = true;
         }
@@ -271,13 +271,20 @@ public class ClickHandler : MonoBehaviour
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
                             */
                         }
-                        else if (currentScene.name == "Senior_Room")
+                        else if (currentScene.name == "Senior_Room" && chestClosed == true)
                         {
+                            Debug.Log("Toy Chest Opened");
+                            clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            chestClosed = false;
+                            ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                            /*
                             Debug.Log("Toy Chest Opened");
                             clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
                             DogToy.SetActive(true);
                             clickedObject.GetComponent<AudioSource>().Play();
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                            */
                         }
                         else if(currentScene.name == "Teen_Room")
                         {
@@ -484,6 +491,13 @@ public class ClickHandler : MonoBehaviour
                         ClockView.SetActive(true);
                         RoomStart.SetActive(false);
                         break;
+                    case "ChoreList":
+                        {
+                            //clickedObject.GetComponent<BoxCollider2D>().enabled = false;
+                            flowchart.ExecuteBlock("ChoreListRip");
+                            
+                        }
+                        break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
                         // Perform default action
@@ -614,6 +628,12 @@ public class ClickHandler : MonoBehaviour
             flowchart.ExecuteBlock("TeenRoomEnd");
         }
     }
+
+    public void PostChoreListRip()
+    {
+
+    }
+
     public void SeniorRoomMusic()
     {
         if(!this.gameObject.GetComponent<AudioSource>().isPlaying)
