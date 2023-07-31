@@ -77,9 +77,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                         {
                             Debug.Log("Toy Chest Opened");
                             receivingObject.GetComponent<ToyChestScript>().ToyChestOpen();
-                            ClickHandler.instance.DogToy.SetActive(true);
+                            //ClickHandler.instance.DogToy.SetActive(true);
                             receivingObject.GetComponent<AudioSource>().Play();
                             ClickHandler.instance.ToyChest.GetComponent<SpriteRenderer>().sprite = receivingObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                            ClickHandler.instance.chestClosed = false;
                         }
                         break;
                     case "Dog(DogBowlView)(Child)":

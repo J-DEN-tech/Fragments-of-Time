@@ -23,6 +23,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject RoomStart;
     public GameObject WindowView;
     public GameObject ToyChestView;
+    public GameObject InsideChestView;
     public GameObject ShelfView;
     public GameObject WardrobeView;
     public GameObject DeskView;
@@ -95,6 +96,7 @@ public class ClickHandler : MonoBehaviour
         RoomStart.SetActive(true);
         WindowView.SetActive(false);
         ToyChestView.SetActive(false);
+        InsideChestView.SetActive(false);
         ShelfView.SetActive(false);
         WardrobeView.SetActive(false);
         DeskView.SetActive(false);
@@ -137,6 +139,10 @@ public class ClickHandler : MonoBehaviour
             Debug.Log("ComputerCodeInputField is assigned.");
         }
 
+        if (currentScene.name == "ChildRoom")
+        {
+            chestClosed = true;
+        }
         if (currentScene.name == "Teen_Room")
         {
             inventory.GetComponent<InventoryManager>().AddItemToInventory(
@@ -245,7 +251,13 @@ public class ClickHandler : MonoBehaviour
                         WardrobeView.SetActive(false);
                         break;
                     case "ToyChest(ToyChestView)":
-                        if (hasKey == false && currentScene.name == "ChildRoom")
+                        if (chestClosed == false)
+                        {
+                            InsideChestView.SetActive(true);
+                            ToyChestView.SetActive(false);
+                            RoomStart.SetActive(false);
+                        }
+                        else if (hasKey == false && currentScene.name == "ChildRoom")
                         {
                             flowchart.ExecuteBlock("LockedChest");
                         }
@@ -274,8 +286,6 @@ public class ClickHandler : MonoBehaviour
                             clickedObject.GetComponent<AudioSource>().Play();
                             chestClosed = true;
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
-
-
                         }
                         break;
                     case "DogToy":
@@ -518,6 +528,7 @@ public class ClickHandler : MonoBehaviour
             RoomStart.SetActive(true);
             WindowView.SetActive(false);
             ToyChestView.SetActive(false);
+            InsideChestView.SetActive(false);
             ShelfView.SetActive(false);
             WardrobeView.SetActive(false);
             DeskView.SetActive(false);
