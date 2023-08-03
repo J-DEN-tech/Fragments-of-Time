@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
+using JetBrains.Annotations;
 
 public class ClickHandler : MonoBehaviour
 {
@@ -17,10 +18,12 @@ public class ClickHandler : MonoBehaviour
     Scene currentScene;
 
     public GameObject inventory;
+    
 
     public GameObject RoomStart;
     public GameObject WindowView;
     public GameObject ToyChestView;
+    public GameObject InsideChestView;
     public GameObject ShelfView;
     public GameObject WardrobeView;
     public GameObject DeskView;
@@ -30,6 +33,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject DrawerView;
     public GameObject VetNoteView;
     public GameObject ComputerView;
+    public GameObject ChoreListView;
 
 
     public GameObject ToyChest;
@@ -73,6 +77,9 @@ public class ClickHandler : MonoBehaviour
     public int dogToyParts = 0;
     public GameObject DogToyBody;
 
+    private bool temp1 = false;
+    private bool temp2 = false;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -89,6 +96,7 @@ public class ClickHandler : MonoBehaviour
         RoomStart.SetActive(true);
         WindowView.SetActive(false);
         ToyChestView.SetActive(false);
+        InsideChestView.SetActive(false);
         ShelfView.SetActive(false);
         WardrobeView.SetActive(false);
         DeskView.SetActive(false);
@@ -100,6 +108,8 @@ public class ClickHandler : MonoBehaviour
         VetNoteView.SetActive(false);
         ComputerView.SetActive(false);
         ComputerLock.SetActive(false);
+        ChoreListView.SetActive(false);
+        
 
         currentScene = SceneManager.GetActiveScene();
         Debug.Log("current scene = " + currentScene.name);
@@ -127,6 +137,16 @@ public class ClickHandler : MonoBehaviour
         else
         {
             Debug.Log("ComputerCodeInputField is assigned.");
+        }
+
+        if (currentScene.name == "ChildRoom" || currentScene.name == "Senior_Room")
+        {
+            chestClosed = true;
+        }
+        if (currentScene.name == "Teen_Room")
+        {
+            inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "ChoreList", picture = inventory.GetComponent<InventoryManager>().choreListSprite });
         }
     }
 
@@ -224,6 +244,7 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "Tea_Full":
                         clickedObject.GetComponent<TeaScript>().TeaDrink();
+                        clickedObject.GetComponent<AudioSource>().Play();
                         break;
                     case "ToyChest":
                         ToyChestView.SetActive(true);
@@ -231,7 +252,13 @@ public class ClickHandler : MonoBehaviour
                         WardrobeView.SetActive(false);
                         break;
                     case "ToyChest(ToyChestView)":
-                        if (hasKey == false && currentScene.name == "ChildRoom")
+                        if (chestClosed == false && currentScene.name != "Teen_Room")
+                        {
+                            InsideChestView.SetActive(true);
+                            ToyChestView.SetActive(false);
+                            RoomStart.SetActive(false);
+                        }
+                        else if (hasKey == false && currentScene.name == "ChildRoom")
                         {
                             flowchart.ExecuteBlock("LockedChest");
                         }
@@ -245,12 +272,27 @@ public class ClickHandler : MonoBehaviour
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
                             */
                         }
-                        else if (currentScene.name == "Senior_Room")
+                        else if (currentScene.name == "Senior_Room" && chestClosed == true)
                         {
+                            Debug.Log("Toy Chest Opened");
+                            clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            chestClosed = false;
+                            ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                            /*
                             Debug.Log("Toy Chest Opened");
                             clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
                             DogToy.SetActive(true);
                             clickedObject.GetComponent<AudioSource>().Play();
+                            ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                            */
+                        }
+                        else if(currentScene.name == "Teen_Room")
+                        {
+                            Debug.Log("Toy Chest Opened");
+                            clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            chestClosed = true;
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
                         }
                         else
@@ -260,8 +302,6 @@ public class ClickHandler : MonoBehaviour
                             clickedObject.GetComponent<AudioSource>().Play();
                             chestClosed = true;
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
-
-
                         }
                         break;
                     case "DogToy":
@@ -452,6 +492,13 @@ public class ClickHandler : MonoBehaviour
                         ClockView.SetActive(true);
                         RoomStart.SetActive(false);
                         break;
+                    case "ChoreList":
+                        {
+                            //clickedObject.GetComponent<BoxCollider2D>().enabled = false;
+                            flowchart.ExecuteBlock("ChoreListRip");
+                            
+                        }
+                        break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
                         // Perform default action
@@ -466,27 +513,45 @@ public class ClickHandler : MonoBehaviour
             flowchart.ExecuteBlock("SeniorRoomEnd");
             dogToyParts = 0;
         }
+
         if (currentScene.name == "Teen_Room" && wardrobeColliderOff == true)
         {
             WardrobeCollider.GetComponent<BoxCollider2D>().enabled = false;
         }
+
         if (currentScene.name == "Teen_Room" && emptyHangerOrange.activeInHierarchy && emptyHangerblue.activeInHierarchy && emptyHangerPink.activeInHierarchy == true && hangerFinished == false)
         {
             hangerFinished = true;
             flowchart.ExecuteBlock("Wardrobe2");
         }
+
+        
+        if (ChoreListView.activeInHierarchy && temp1 == false)
+        {
+            GetComponent<ColliderToggler>().DisableColliders();
+            temp1 = true;
+            temp2 = true;
+        }
+        else if (!ChoreListView.activeInHierarchy && temp2 == true)
+        {
+            GetComponent<ColliderToggler>().EnableColliders();
+            temp1 = false;
+            temp2 = false;
+        }
     }
     public void BackButton()
     {
+        Debug.Log("Back button clicked");
         if (VetNoteView.activeInHierarchy)
         {
             VetNoteView.SetActive(false);
         }
-        else if(!RoomStart.activeInHierarchy)
+        else if(!RoomStart.activeInHierarchy || ChoreListView.activeInHierarchy)
         {
             RoomStart.SetActive(true);
             WindowView.SetActive(false);
             ToyChestView.SetActive(false);
+            InsideChestView.SetActive(false);
             ShelfView.SetActive(false);
             WardrobeView.SetActive(false);
             DeskView.SetActive(false);
@@ -498,6 +563,7 @@ public class ClickHandler : MonoBehaviour
             VetNoteView.SetActive(false);
             ComputerView.SetActive(false);
             ComputerLock.SetActive(false);
+            ChoreListView.SetActive(false);
             Debug.Log("Went back to previous screen");
             TeenRoomEnd();
 
@@ -563,6 +629,12 @@ public class ClickHandler : MonoBehaviour
             flowchart.ExecuteBlock("TeenRoomEnd");
         }
     }
+
+    public void PostChoreListRip()
+    {
+
+    }
+
     public void SeniorRoomMusic()
     {
         if(!this.gameObject.GetComponent<AudioSource>().isPlaying)
