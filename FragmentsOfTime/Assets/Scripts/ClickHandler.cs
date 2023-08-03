@@ -546,7 +546,7 @@ public class ClickHandler : MonoBehaviour
         {
             VetNoteView.SetActive(false);
         }
-        else if(!RoomStart.activeInHierarchy)
+        else if(!RoomStart.activeInHierarchy || ChoreListView.activeInHierarchy)
         {
             RoomStart.SetActive(true);
             WindowView.SetActive(false);
