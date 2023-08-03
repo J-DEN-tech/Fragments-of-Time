@@ -546,7 +546,7 @@ public class ClickHandler : MonoBehaviour
         {
             VetNoteView.SetActive(false);
         }
-        else if(!RoomStart.activeInHierarchy || ChoreListView.activeInHierarchy)
+        else if(!RoomStart.activeInHierarchy && !ChoreListView.activeInHierarchy)
         {
             RoomStart.SetActive(true);
             WindowView.SetActive(false);
@@ -568,7 +568,10 @@ public class ClickHandler : MonoBehaviour
             TeenRoomEnd();
 
         }
-
+        else if (ChoreListView.activeInHierarchy)
+        {
+            ChoreListView.SetActive(false);
+        }
         else
         {
             Debug.Log("No previous screen, or button not working");
