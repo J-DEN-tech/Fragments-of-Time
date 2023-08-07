@@ -1115,6 +1115,7 @@ GameObject:
   - component: {fileID: 139912394}
   - component: {fileID: 139912393}
   - component: {fileID: 139912392}
+  - component: {fileID: 139912395}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1206,6 +1207,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &139912395
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139912390}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &192123870
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,6 +3584,7 @@ MonoBehaviour:
   keySprite: {fileID: 21300000, guid: d26c6e7ce5fa71f44910aee637e92f56, type: 3}
   dogToySprite: {fileID: 21300000, guid: ab194521d5ceee74ba5071cc1ee82b66, type: 3}
   choreListSprite: {fileID: 0}
+  broomSprite: {fileID: 0}
   bottleSprite: {fileID: 2070196110, guid: 90a30979e3f31bb4b8644ad43682155b, type: 3}
   hangerOrangeSprite: {fileID: 21300000, guid: 648acf67742cfb847875b8a629d79e25, type: 3}
   hangerBlueSprite: {fileID: 21300000, guid: efb1cb735f1ad7a43afd125aeac56572, type: 3}
