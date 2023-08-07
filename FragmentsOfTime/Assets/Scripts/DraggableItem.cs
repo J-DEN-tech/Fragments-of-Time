@@ -133,7 +133,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             receivingObject.GetComponent<DustBall>().CleanUpDust();
                         }
                         break;
-                    case "DustBall (1)":
+                    /*case "DustBall (1)":
                         if (item.name == "Broom")
                         {
                             receivingObject.GetComponent<DustBall>().CleanUpDust();
@@ -144,7 +144,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                         {
                             receivingObject.GetComponent<DustBall>().CleanUpDust();
                         }
-                        break;
+                        break;*/
 
                     // // // Adult Room
 

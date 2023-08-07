@@ -6409,8 +6409,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1110732810}
+  selectedCommands:
+  - {fileID: 1110732805}
   variables: []
   description: 
   stepPause: 0
@@ -6452,7 +6454,7 @@ MonoBehaviour:
   itemId: 5
   indentLevel: 0
   storyText: Let's find your favorite toy, Boba! Then we can play together and have
-    a bedtime story before we go to bed!
+    a bedtime story before we have a nap!
   description: 
   character: {fileID: 638106269}
   portrait: {fileID: 0}
@@ -6479,7 +6481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 4
   indentLevel: 0
-  storyText: '[I want to find Boba''s favorite toy before bedtime. I wonder if it''s
+  storyText: '[I want to find Boba''s favorite toy before naptime. I wonder if it''s
     hidden somewhere in my bedroom.]'
   description: 
   character: {fileID: 638106269}
@@ -7004,7 +7006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 23
   indentLevel: 0
-  storyText: There's Boba's favourite toy! I wanna play with him before bedtime!
+  storyText: There's Boba's favourite toy! I wanna play with him before naptime!
   description: 
   character: {fileID: 638106269}
   portrait: {fileID: 0}
@@ -7031,7 +7033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 29
   indentLevel: 0
-  storyText: That was fun! I better get ready for bed soon.
+  storyText: That was fun! I better get ready for my nap.
   description: 
   character: {fileID: 638106269}
   portrait: {fileID: 0}
@@ -9983,6 +9985,7 @@ MonoBehaviour:
   DogBowl: {fileID: 0}
   Bottle: {fileID: 0}
   WardrobeCollider: {fileID: 0}
+  dustSpriteManager: {fileID: 0}
   hasDogMeds: 0
   hasVetNote: 0
   DeskLock: {fileID: 2080368202}
