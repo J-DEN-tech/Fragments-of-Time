@@ -60,6 +60,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject Bottle;
     private bool wardrobeColliderOff = false;
     public GameObject WardrobeCollider;
+    public GameObject dustSpriteManager;
 
     public bool hasDogMeds = false;
     public bool hasVetNote;
@@ -643,7 +644,7 @@ public class ClickHandler : MonoBehaviour
     }
     public void TeenRoomEnd()
     {
-        if(currentScene.name == "Teen_Room" && chestClosed == true && hangerFinished == true && bowlfilled == true) 
+        if(currentScene.name == "Teen_Room" && hangerFinished == true && bowlfilled == true && dustSpriteManager.GetComponent<DustBallManager>().dustBallsCleaned == true) 
         {
             
             flowchart.ExecuteBlock("TeenRoomEnd");

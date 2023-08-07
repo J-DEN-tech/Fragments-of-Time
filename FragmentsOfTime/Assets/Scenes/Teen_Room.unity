@@ -3807,7 +3807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &681712429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12179,7 +12179,7 @@ GameObject:
   - component: {fileID: 1921519050}
   - component: {fileID: 1921519049}
   m_Layer: 5
-  m_Name: Close toy box
+  m_Name: Clean dust around desk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12225,7 +12225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close toy box
+  m_text: Clean dust around desk
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57522699433c69f4e84065dd3e3a2870, type: 2}
   m_sharedMaterial: {fileID: -1584907939302501683, guid: 57522699433c69f4e84065dd3e3a2870, type: 2}
