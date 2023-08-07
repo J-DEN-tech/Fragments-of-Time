@@ -439,6 +439,8 @@ public class ClickHandler : MonoBehaviour
                         break;
                     case "Broom(DeskView)":
                         Debug.Log("Broom Obtained");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "Broom", picture = inventory.GetComponent<InventoryManager>().broomSprite });
                         clickedObject.SetActive(false);
                         break;
                     case "Bottle(DeskView)":
