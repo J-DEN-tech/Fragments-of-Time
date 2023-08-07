@@ -4309,7 +4309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 586.5, y: -38.369995}
+  m_AnchoredPosition: {x: 586.5, y: -46}
   m_SizeDelta: {x: 1106, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734066215
@@ -4333,9 +4333,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0be06c409b3a38a4984c8c1ec5f3f130, type: 3}
+    m_Font: {fileID: 12800000, guid: bcfc962c34dfe35448e26a8737135b52, type: 3}
     m_FontSize: 50
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 50
@@ -5909,6 +5909,7 @@ GameObject:
   - component: {fileID: 1052089039}
   - component: {fileID: 1052089040}
   - component: {fileID: 1052089041}
+  - component: {fileID: 1052089042}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -6019,6 +6020,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 1052089022}
   - {fileID: 1052088937}
+  - {fileID: 1052089042}
   - {fileID: 1052088980}
   - {fileID: 1052088986}
   - {fileID: 1052088985}
@@ -6050,9 +6052,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1052089007}
+  - {fileID: 1052088993}
   selectedCommands:
-  - {fileID: 1052089004}
+  - {fileID: 1052088992}
   variables:
   - {fileID: 1052089026}
   - {fileID: 1052089039}
@@ -6292,7 +6294,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 143.2973
-    y: 152.62521
+    y: 151.62521
     width: 101
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -7674,6 +7676,21 @@ MonoBehaviour:
   soundClip: {fileID: 8300000, guid: eda891084d9405d42b97ea83d5bce01b, type: 3}
   volume: 0.5
   waitUntilFinished: 0
+--- !u!114 &1052089042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052088931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 102
+  indentLevel: 0
+  sayDialog: {fileID: 1476447496}
 --- !u!1 &1090707670
 GameObject:
   m_ObjectHideFlags: 0
@@ -8674,7 +8691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 326.52432, y: 322.66113}
+  m_AnchoredPosition: {x: 327, y: 312}
   m_SizeDelta: {x: 104.8214, y: 28.1488}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266567102
@@ -8699,8 +8716,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Inventory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8b9b405d069523d45ac9f075ce17e316, type: 2}
+  m_sharedMaterial: {fileID: 4723321479553695497, guid: 8b9b405d069523d45ac9f075ce17e316, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8724,8 +8741,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.3
-  m_fontSizeBase: 24.3
+  m_fontSize: 21.16
+  m_fontSizeBase: 21.16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9711,7 +9728,7 @@ GameObject:
   - component: {fileID: 1476447493}
   - component: {fileID: 1476447492}
   m_Layer: 5
-  m_Name: AdultSayDialog
+  m_Name: SeniorSayDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12447,12 +12464,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0db9079498d0a014fab7158bb7eebc17, type: 3}
-    m_FontSize: 45
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 111cc6eddbc7a2245aeae3259fc5e972, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 50
+    m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
