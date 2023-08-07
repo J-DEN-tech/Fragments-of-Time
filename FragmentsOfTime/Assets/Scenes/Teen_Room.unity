@@ -10879,6 +10879,7 @@ GameObject:
   - component: {fileID: 1757101520}
   - component: {fileID: 1757101519}
   - component: {fileID: 1757101518}
+  - component: {fileID: 1757101523}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -11001,6 +11002,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1757101523
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757101517}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1774017538
 GameObject:
   m_ObjectHideFlags: 0
@@ -12318,6 +12331,7 @@ GameObject:
   - component: {fileID: 2122706432}
   - component: {fileID: 2122706431}
   - component: {fileID: 2122706430}
+  - component: {fileID: 2122706433}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -12409,6 +12423,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &2122706433
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122706428}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2140362119
 GameObject:
   m_ObjectHideFlags: 0

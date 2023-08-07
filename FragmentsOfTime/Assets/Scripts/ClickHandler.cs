@@ -154,6 +154,21 @@ public class ClickHandler : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
         {
+            if (EventSystem.current.IsPointerOverGameObject(-1)) // Pass -1 to consider all pointers
+            {
+                PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+                eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+                List<RaycastResult> results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+
+                if (results.Count > 0)
+                {
+                    // If we are here, the mouse is over a UI element
+                    Debug.Log("UI element clicked");
+                    return;
+                }
+            }
             // Create a ray from the camera to the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
@@ -413,7 +428,7 @@ public class ClickHandler : MonoBehaviour
                         VetNoteView.SetActive(true);
                         //DrawerView.SetActive(false);
                         flowchart.ExecuteBlock("VetNote");
-                        if(!hasVetNote)
+                        if(!hasVetNote && currentScene.name == "Adult_Room")
                         {
                             inventory.GetComponent<InventoryManager>().AddItemToInventory(
                                 new Item { name = "VetNote", picture = inventory.GetComponent<InventoryManager>().vetNoteSprite });
