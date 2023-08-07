@@ -91,6 +91,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             ClickHandler.instance.flowchart.ExecuteBlock("ChildRoomEnd");
                         }
                         break;
+                    
 
                     // // // Teen Room
 
@@ -124,6 +125,24 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                         {
                             ClickHandler.instance.emptyHangerOrange.SetActive(true);
                             InventoryManager.instance.UseItem(this.item);
+                        }
+                        break;
+                    case "DustBall":
+                        if (item.name == "Broom")
+                        {
+                            receivingObject.GetComponent<DustBall>().CleanUpDust();
+                        }
+                        break;
+                    case "DustBall (1)":
+                        if (item.name == "Broom")
+                        {
+                            receivingObject.GetComponent<DustBall>().CleanUpDust();
+                        }
+                        break;
+                    case "DustBall (2)":
+                        if (item.name == "Broom")
+                        {
+                            receivingObject.GetComponent<DustBall>().CleanUpDust();
                         }
                         break;
 

@@ -33,6 +33,7 @@ public class InventoryManager : MonoBehaviour
     public Sprite keySprite;
     public Sprite dogToySprite;
     public Sprite choreListSprite;
+    public Sprite broomSprite;
     public Sprite bottleSprite;
     public Sprite hangerOrangeSprite;
     public Sprite hangerBlueSprite;
