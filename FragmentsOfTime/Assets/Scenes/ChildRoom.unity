@@ -5558,7 +5558,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1032207550}
   - component: {fileID: 1032207549}
-  - component: {fileID: 1032207548}
   m_Layer: 0
   m_Name: DogBed
   m_TagString: Untagged
@@ -5566,86 +5565,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &1032207548
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032207546}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 16}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 4, y: -7.02}
-      - {x: 4.02, y: -7}
-      - {x: 4.5699997, y: -6.87}
-      - {x: 5.33, y: -6.3799996}
-      - {x: 6.0499997, y: -5.52}
-      - {x: 6.52, y: -4.42}
-      - {x: 6.52, y: -2.6799998}
-      - {x: 6.0499997, y: -1.63}
-      - {x: 5.3599997, y: -0.88}
-      - {x: 4.62, y: -0.39}
-      - {x: 4.02, y: -0.19999999}
-      - {x: 3.25, y: 0.02}
-      - {x: 2.25, y: 0.26999998}
-      - {x: -1.25, y: 0.26999998}
-      - {x: -1.27, y: 0.25}
-      - {x: -2.25, y: 0.02}
-      - {x: -2.27, y: 0}
-      - {x: -3, y: -0.22999999}
-      - {x: -3.02, y: -0.25}
-      - {x: -3.5, y: -0.48}
-      - {x: -3.77, y: -0.75}
-      - {x: -4.25, y: -0.97999996}
-      - {x: -4.77, y: -1.5}
-      - {x: -5.0099998, y: -1.7199999}
-      - {x: -5.52, y: -2.6599998}
-      - {x: -5.52, y: -4.3199997}
-      - {x: -5.0699997, y: -5.54}
-      - {x: -4.27, y: -6.2999997}
-      - {x: -3.58, y: -6.8399997}
-      - {x: -2.27, y: -7.3399997}
-      - {x: -1.25, y: -7.52}
-      - {x: 2.25, y: -7.52}
-      - {x: 2.27, y: -7.5}
-      - {x: 3.25, y: -7.27}
-      - {x: 3.27, y: -7.25}
-  m_UseDelaunayMesh: 0
 --- !u!212 &1032207549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8667,7 +8586,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0013660192, y: 0.005113624}
+  m_Offset: {x: -0.0058511496, y: -0.03884092}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8678,7 +8597,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2376939, y: 0.29625237}
+  m_Size: {x: 0.4906568, y: 0.38416147}
   m_EdgeRadius: 0
 --- !u!82 &1198405266
 AudioSource:
