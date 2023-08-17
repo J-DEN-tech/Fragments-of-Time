@@ -544,6 +544,7 @@ MonoBehaviour:
   keySprite: {fileID: 21300000, guid: d26c6e7ce5fa71f44910aee637e92f56, type: 3}
   dogToySprite: {fileID: 0}
   choreListSprite: {fileID: 0}
+  broomSprite: {fileID: 0}
   bottleSprite: {fileID: 2070196110, guid: 90a30979e3f31bb4b8644ad43682155b, type: 3}
   hangerOrangeSprite: {fileID: 0}
   hangerBlueSprite: {fileID: 0}
