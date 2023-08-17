@@ -2324,7 +2324,7 @@ GameObject:
   - component: {fileID: 402536471}
   - component: {fileID: 402536473}
   m_Layer: 0
-  m_Name: DustBall (1)
+  m_Name: DustBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3284,6 +3284,7 @@ MonoBehaviour:
   DogBowl: {fileID: 1377003695}
   Bottle: {fileID: 684242543}
   WardrobeCollider: {fileID: 1657292677}
+  dustSpriteManager: {fileID: 948965495}
   hasDogMeds: 0
   hasVetNote: 0
   DeskLock: {fileID: 1375056169}
@@ -9067,7 +9068,7 @@ GameObject:
   - component: {fileID: 1495783839}
   - component: {fileID: 1495783841}
   m_Layer: 0
-  m_Name: DustBall (2)
+  m_Name: DustBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9621,6 +9622,10 @@ GameObject:
   - component: {fileID: 1636311621}
   - component: {fileID: 1636311623}
   - component: {fileID: 1636311624}
+  - component: {fileID: 1636311628}
+  - component: {fileID: 1636311627}
+  - component: {fileID: 1636311626}
+  - component: {fileID: 1636311625}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -9784,9 +9789,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1636311591}
+  - {fileID: 1636311628}
   selectedCommands:
-  - {fileID: 1636311624}
+  - {fileID: 1636311625}
   variables: []
   description: 
   stepPause: 0
@@ -10596,7 +10601,7 @@ MonoBehaviour:
   fadeTweenType: 4
 --- !u!114 &1636311624
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10609,6 +10614,118 @@ MonoBehaviour:
   itemId: 33
   indentLevel: 0
   sayDialog: {fileID: 94391122}
+--- !u!114 &1636311625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 37
+  indentLevel: 0
+  storyText: Nice and clean.
+  description: 
+  character: {fileID: 1245093928}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1636311626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 36
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 579282071}
+  targetComponentAssemblyName: ColliderToggler, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: ColliderToggler
+  targetMethod: EnableColliders
+  targetMethodText: 'EnableColliders (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1636311627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 35
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 579282071}
+  targetComponentAssemblyName: ColliderToggler, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: ColliderToggler
+  targetMethod: DisableColliders
+  targetMethodText: 'DisableColliders (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1636311628
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 265.2992
+    y: 348.8703
+    width: 123
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 34
+  blockName: DustFinished
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1636311627}
+  - {fileID: 1636311625}
+  - {fileID: 1636311626}
+  suppressAllAutoSelections: 0
 --- !u!1 &1657292677
 GameObject:
   m_ObjectHideFlags: 0
@@ -12179,7 +12296,7 @@ GameObject:
   - component: {fileID: 1921519050}
   - component: {fileID: 1921519049}
   m_Layer: 5
-  m_Name: Close toy box
+  m_Name: Clean dust around desk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12225,7 +12342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close toy box
+  m_text: Clean dust around desk
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57522699433c69f4e84065dd3e3a2870, type: 2}
   m_sharedMaterial: {fileID: -1584907939302501683, guid: 57522699433c69f4e84065dd3e3a2870, type: 2}

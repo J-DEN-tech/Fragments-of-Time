@@ -11702,7 +11702,7 @@ GameObject:
   - component: {fileID: 1792916077}
   - component: {fileID: 1792916076}
   m_Layer: 5
-  m_Name: Close toy box
+  m_Name: Clean dust around desk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11748,7 +11748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close toy box
+  m_text: Clean dust around desk
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57522699433c69f4e84065dd3e3a2870, type: 2}
   m_sharedMaterial: {fileID: -1584907939302501683, guid: 57522699433c69f4e84065dd3e3a2870, type: 2}
@@ -13637,6 +13637,7 @@ MonoBehaviour:
   keySprite: {fileID: 21300000, guid: d26c6e7ce5fa71f44910aee637e92f56, type: 3}
   dogToySprite: {fileID: 0}
   choreListSprite: {fileID: 0}
+  broomSprite: {fileID: 0}
   bottleSprite: {fileID: 2070196110, guid: 90a30979e3f31bb4b8644ad43682155b, type: 3}
   hangerOrangeSprite: {fileID: 0}
   hangerBlueSprite: {fileID: 0}
