@@ -195,6 +195,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             ClickHandler.instance.dogToyParts += 1;
                         }
                         break;
+
+                    // // // Tutorial Scene
+
+                    case "ToyChest":
+                        if (item.name == "KeyTut")
+                        {
+                            //receivingObject.SetActive(false);
+                            receivingObject.GetComponent<ToyChestScript>().ToyChestOpen();
+                            //ClickHandler.instance.DogToy.SetActive(true);
+                            receivingObject.GetComponent<AudioSource>().Play();
+                        }
+                        break;
                     default:
                         Debug.Log("Item dropped on an unrecognized object");
                         break;

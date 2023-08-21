@@ -222,7 +222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &44524724
 Transform:
   m_ObjectHideFlags: 0
@@ -3255,7 +3255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &694155204
 Transform:
   m_ObjectHideFlags: 0
@@ -6329,9 +6329,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1110732810}
-  selectedCommands:
-  - {fileID: 1110732805}
+  - {fileID: 1110732801}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0

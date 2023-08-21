@@ -28,4 +28,12 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     */
+    public void PauseGame()
+    {
+        
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
 }
