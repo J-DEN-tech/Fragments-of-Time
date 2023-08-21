@@ -6,7 +6,7 @@ using Fungus;
 public class ColliderToggler : MonoBehaviour
 {
     private List<Collider2D> allColliders;
-
+    public bool areCollidersOn = true;
     private void Awake()
     {
         // Cache all colliders at the start
@@ -24,6 +24,7 @@ public class ColliderToggler : MonoBehaviour
                 collider.enabled = false;
             }
         }
+        areCollidersOn = false;
     }
 
     public void EnableColliders()
@@ -34,5 +35,6 @@ public class ColliderToggler : MonoBehaviour
         {
             if (collider) collider.enabled = true;
         }
+        areCollidersOn = true;
     }
 }

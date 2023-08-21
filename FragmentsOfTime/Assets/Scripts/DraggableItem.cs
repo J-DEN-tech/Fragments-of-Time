@@ -77,9 +77,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                         {
                             Debug.Log("Toy Chest Opened");
                             receivingObject.GetComponent<ToyChestScript>().ToyChestOpen();
-                            ClickHandler.instance.DogToy.SetActive(true);
+                            //ClickHandler.instance.DogToy.SetActive(true);
                             receivingObject.GetComponent<AudioSource>().Play();
                             ClickHandler.instance.ToyChest.GetComponent<SpriteRenderer>().sprite = receivingObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
+                            ClickHandler.instance.chestClosed = false;
                         }
                         break;
                     case "Dog(DogBowlView)(Child)":
@@ -90,6 +91,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             ClickHandler.instance.flowchart.ExecuteBlock("ChildRoomEnd");
                         }
                         break;
+                    
 
                     // // // Teen Room
 
@@ -125,6 +127,24 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             InventoryManager.instance.UseItem(this.item);
                         }
                         break;
+                    case "DustBall":
+                        if (item.name == "Broom")
+                        {
+                            receivingObject.GetComponent<DustBall>().CleanUpDust();
+                        }
+                        break;
+                    /*case "DustBall (1)":
+                        if (item.name == "Broom")
+                        {
+                            receivingObject.GetComponent<DustBall>().CleanUpDust();
+                        }
+                        break;
+                    case "DustBall (2)":
+                        if (item.name == "Broom")
+                        {
+                            receivingObject.GetComponent<DustBall>().CleanUpDust();
+                        }
+                        break;*/
 
                     // // // Adult Room
 
@@ -187,4 +207,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
+
+    public void ChoreList()
+    {
+        if (item.name == "ChoreList")
+        {
+            ClickHandler.instance.ChoreListView.SetActive(true);
+        }
+        /*
+        else
+        {
+            Debug.Log("not chore list");
+        }
+        */
+    }
 }
