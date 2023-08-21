@@ -205,6 +205,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             receivingObject.GetComponent<ToyChestScript>().ToyChestOpen();
                             //ClickHandler.instance.DogToy.SetActive(true);
                             receivingObject.GetComponent<AudioSource>().Play();
+
                         }
                         break;
                     default:
