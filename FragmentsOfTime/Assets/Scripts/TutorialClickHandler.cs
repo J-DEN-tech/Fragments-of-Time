@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Fungus;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 
@@ -10,10 +11,19 @@ public class TutorialClickHandler : MonoBehaviour
 {
     public Flowchart flowchart;
     Scene currentScene;
+    public GameObject tutView;
     public GameObject inventory;
+    public GameObject clickMe;
+    public GameObject inventoryState;
+    public TMP_Text stateText;
+    public GameObject firstControls;
+    public GameObject chestText;
+    public GameObject key;
+    public GameObject quitButton;
+    public GameObject chest;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         currentScene = SceneManager.GetActiveScene();
         Debug.Log("current scene = " + currentScene.name);
@@ -22,6 +32,10 @@ public class TutorialClickHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tutView.activeInHierarchy == true)
+        {
+            StartCoroutine(WaitAndExecute(2.2f));
+        }
         if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
         {
             if (EventSystem.current.IsPointerOverGameObject(-1)) // Pass -1 to consider all pointers
@@ -56,6 +70,8 @@ public class TutorialClickHandler : MonoBehaviour
                         clickedObject.SetActive(false);
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "KeyTut", picture = inventory.GetComponent<InventoryManager>().keySprite });
+                        firstControls.SetActive(false);
+                        inventoryState.SetActive(true);
                         break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
@@ -64,6 +80,31 @@ public class TutorialClickHandler : MonoBehaviour
                 }
             }
         }
+        if (InventoryManager.instance.menuState == true)
+        {
+            stateText.text = "Close Inventory";
+        }
+        else
+        {
+            stateText.text = "Open Inventory";
+        }
+        if (InventoryManager.instance.menuState == true && key.activeInHierarchy == false)
+        {
+            chestText.SetActive(true);
+        }
+        if (chest.GetComponent<ToyChestScript>().isOpen == true)
+        {
+            quitButton.SetActive(true);
+            chestText.SetActive(false);
+            inventoryState.SetActive(false);
+        }
+    }
+    IEnumerator WaitAndExecute(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        firstControls.SetActive(false);
+        clickMe.SetActive(true);
     }
 }
 

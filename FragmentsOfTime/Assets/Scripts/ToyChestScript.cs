@@ -7,6 +7,7 @@ public class ToyChestScript : MonoBehaviour
 {
     public List<Sprite> ToyChestSprite; //All backgrounds can be placed in here
     public SpriteRenderer image;
+    public bool isOpen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +23,6 @@ public class ToyChestScript : MonoBehaviour
     public void ToyChestOpen()
     {
         image.sprite = ToyChestSprite[1];
+        isOpen = true;
     }
 }
