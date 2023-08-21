@@ -43,7 +43,7 @@ public class ClickHandler : MonoBehaviour
     public bool hasKey = false;
     public bool hasWand = false;
     public bool hasDogToy = false;
-
+    public bool fairyWandOut = false;
     public bool bowlfilled = false;
     public bool chestClosed = false;
     public int hangerTotal;
@@ -228,14 +228,24 @@ public class ClickHandler : MonoBehaviour
                     case "FlowerPot(WindowView)":
                         Debug.Log("FlowerPot Clicked");
                         StartCoroutine(MoveObject(hit.collider.transform.Find("FairyWand"), new Vector3(6.9f, -6.16f, 0), 1f));
+                        fairyWandOut = true;
                         break;
                     case "FairyWand":
-                        Debug.Log("Fairy wand Obtained");
-                        clickedObject.SetActive(false);
-                        hasWand = true;
-                        flowchart.ExecuteBlock("FairyWand(Child)");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "FairyWand", picture = inventory.GetComponent<InventoryManager>().wandSprite });
+                        if (fairyWandOut == true)
+                        {
+                            Debug.Log("Fairy wand Obtained");
+                            clickedObject.SetActive(false);
+                            hasWand = true;
+                            flowchart.ExecuteBlock("FairyWand(Child)");
+                            inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                                new Item { name = "FairyWand", picture = inventory.GetComponent<InventoryManager>().wandSprite });
+                        }
+                        else
+                        {
+                            Debug.Log("FlowerPot Clicked");
+                            StartCoroutine(MoveObject(hit.collider.transform, new Vector3(6.9f, -6.16f, 0), 1f));
+                            fairyWandOut = true;
+                        }
                         break;
                     case "CoatHanger(WindowView)":
                         clickedObject.SetActive(false);
@@ -516,6 +526,9 @@ public class ClickHandler : MonoBehaviour
                             flowchart.ExecuteBlock("ChoreListRip");
                             
                         }
+                        break;
+                    case "Toy":
+                        flowchart.ExecuteBlock("WrongToy");
                         break;
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
