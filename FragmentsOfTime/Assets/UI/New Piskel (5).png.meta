@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a61a2a7c4c0403b4384e96667df42680
+guid: be94b3413e46f9a4cab367e9318a2d27
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,6 +93,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -127,41 +151,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Park Scene wth lady (1) (1)_0
+      name: New Piskel (5)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1440
-        width: 1440
-        height: 1440
+        x: 541
+        y: 2685
+        width: 966
+        height: 774
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99860d357d4e18b4f9428a1c0b1034cd
-      internalID: 32447297
+      spriteID: 4b25bde8e342c5b41ad3c39fc34e9d4b
+      internalID: -1317586709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Park Scene wth lady (1) (1)_1
+      name: New Piskel (5)_1
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 1440
-        width: 1440
-        height: 1440
+        x: 669
+        y: 925
+        width: 678
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,50 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c37c4894d76184f4c9192fc07cf0d540
-      internalID: 878129770
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Park Scene wth lady (1) (1)_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1440
-        height: 1440
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9622709fabd435e429fc310a77cd1e24
-      internalID: -210699254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Park Scene wth lady (1) (1)_3
-      rect:
-        serializedVersion: 2
-        x: 1440
-        y: 0
-        width: 1440
-        height: 1440
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cc253f6fc8432a4e98d665f951eaec2
-      internalID: -1382756591
+      spriteID: 355c8be10f7d54141b8f81a504b91ce6
+      internalID: -2084392734
       vertices: []
       indices: 
       edges: []
@@ -249,10 +207,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Park Scene wth lady (1) (1)_0: 32447297
-      Park Scene wth lady (1) (1)_1: 878129770
-      Park Scene wth lady (1) (1)_2: -210699254
-      Park Scene wth lady (1) (1)_3: -1382756591
+      New Piskel (5)_0: -1317586709
+      New Piskel (5)_1: -2084392734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
