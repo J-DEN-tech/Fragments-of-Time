@@ -1053,7 +1053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &102060159
 Transform:
   m_ObjectHideFlags: 0
@@ -4666,7 +4666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -9741,6 +9741,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1981901392611640850, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2272238696434385719, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -9784,6 +9788,18 @@ PrefabInstance:
     - target: {fileID: 5505770310449666778, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
       propertyPath: m_Name
       value: Clouds (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331862930675041336, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657534365724279913, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808148096660928584, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9220254992915536689, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
       propertyPath: m_RootOrder
@@ -9880,6 +9896,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1981901392611640850, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2272238696434385719, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -9923,6 +9943,18 @@ PrefabInstance:
     - target: {fileID: 5505770310449666778, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
       propertyPath: m_Name
       value: Clouds
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331862930675041336, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657534365724279913, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808148096660928584, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9220254992915536689, guid: 2fcdfcfc94ba0e4428abf352c3797af3, type: 3}
       propertyPath: m_RootOrder
@@ -10535,7 +10567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.1447144, y: -9.433807}
+  m_AnchoredPosition: {x: 3.1447144, y: -9.433838}
   m_SizeDelta: {x: 59.7478, y: 56.6033}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1599477408
@@ -12209,8 +12241,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 9.9}
-  m_SizeDelta: {x: -897.3216, y: -486.8882}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -593.1802, y: -308.0446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716650036
 MonoBehaviour:
@@ -12510,7 +12542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1727642600
 Transform:
   m_ObjectHideFlags: 0
