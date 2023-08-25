@@ -21,6 +21,7 @@ public class TutorialClickHandler : MonoBehaviour
     public GameObject key;
     public GameObject quitButton;
     public GameObject chest;
+    public bool fuck;
 
     // Start is called before the first frame update
     public void Start()
@@ -32,9 +33,10 @@ public class TutorialClickHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tutView.activeInHierarchy == true)
+        if (tutView.activeInHierarchy == true && fuck == false)
         {
             StartCoroutine(WaitAndExecute(2.2f));
+            fuck = true;
         }
         if (Input.GetMouseButtonDown(0)) // 0 is the left mouse button
         {
@@ -71,6 +73,7 @@ public class TutorialClickHandler : MonoBehaviour
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "KeyTut", picture = inventory.GetComponent<InventoryManager>().keySprite });
                         firstControls.SetActive(false);
+                        clickMe.SetActive(false);
                         inventoryState.SetActive(true);
                         break;
                     default:
