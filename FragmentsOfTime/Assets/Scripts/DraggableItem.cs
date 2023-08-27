@@ -70,6 +70,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                         {
                             receivingObject.SetActive(false);
                             ClickHandler.instance.GetKey();
+                            ClickHandler.instance.inventory.GetComponent<AudioSource>().Play();
                         }
                         break;
                     case "ToyChest(ToyChestView)":

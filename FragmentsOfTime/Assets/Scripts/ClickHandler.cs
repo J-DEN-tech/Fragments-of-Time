@@ -239,6 +239,7 @@ public class ClickHandler : MonoBehaviour
                             flowchart.ExecuteBlock("FairyWand(Child)");
                             inventory.GetComponent<InventoryManager>().AddItemToInventory(
                                 new Item { name = "FairyWand", picture = inventory.GetComponent<InventoryManager>().wandSprite });
+                            inventory.GetComponent<AudioSource>().Play();
                         }
                         else
                         {
@@ -254,12 +255,14 @@ public class ClickHandler : MonoBehaviour
                         flowchart.ExecuteBlock("CoatHangerOrange");
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "HangerOrange", picture = inventory.GetComponent<InventoryManager>().hangerOrangeSprite });
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
                     case "CoatHangerBlue":
                         clickedObject.SetActive(false);
                         hangerTotal += 1;
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "HangerBlue", picture = inventory.GetComponent<InventoryManager>().hangerBlueSprite });
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
                     case "CoatHangerPink":
                         clickedObject.SetActive(false);
@@ -267,6 +270,7 @@ public class ClickHandler : MonoBehaviour
                         CoatHangerPink.SetActive(false);
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "HangerPink", picture = inventory.GetComponent<InventoryManager>().hangerPinkSprite });
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
                     case "Tea_Full":
                         clickedObject.GetComponent<TeaScript>().TeaDrink();
@@ -336,6 +340,7 @@ public class ClickHandler : MonoBehaviour
                         flowchart.ExecuteBlock("DogToy(Child)");
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "DogToy", picture = inventory.GetComponent<InventoryManager>().dogToySprite });
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
                     case "DogToy(Ear)":
                         clickedObject.SetActive(false);
@@ -468,6 +473,7 @@ public class ClickHandler : MonoBehaviour
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "Broom", picture = inventory.GetComponent<InventoryManager>().broomSprite });
                         clickedObject.SetActive(false);
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
                     case "Bottle(DeskView)":
                         Debug.Log("Bottle Obtained");
@@ -475,6 +481,7 @@ public class ClickHandler : MonoBehaviour
                                 new Item { name = "Bottle", picture = inventory.GetComponent<InventoryManager>().bottleSprite });
                         clickedObject.SetActive(false);
                         Bottle.SetActive(false);
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
                     case "DogBowl":
                         if (currentScene.name == "Senior_Room" && dogToyParts < 4)

@@ -14,6 +14,7 @@ public class DustBallManager : MonoBehaviour
             Debug.Log("Dust balls have been cleaned");
             dustBallsCleaned = true;
             ClickHandler.instance.flowchart.ExecuteBlock("DustFinished");
+            ClickHandler.instance.inventory.GetComponent<AudioSource>().Play();
         }
     }
 }
