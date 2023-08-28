@@ -78,6 +78,10 @@ public class ClickHandler : MonoBehaviour
     public GameObject FuneralDress;
     public int dogToyParts = 0;
     public GameObject DogToyBody;
+    public GameObject EmptyDogToyButton;
+    public GameObject EmptyDogToyArm;
+    public GameObject EmptyDogToyLeg;
+    public GameObject EmptyDogToyEar;
 
     private bool temp1 = false;
     private bool temp2 = false;
@@ -572,6 +576,7 @@ public class ClickHandler : MonoBehaviour
                         flowchart.ExecuteBlock("DogToy(Ear)");
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "DogToy(Ear)", picture = inventory.GetComponent<InventoryManager>().dogToyEarSprite });
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
 
                     case "DogToy(Arm)":
@@ -579,6 +584,7 @@ public class ClickHandler : MonoBehaviour
                         flowchart.ExecuteBlock("DogToy(Arm)");
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "DogToy(Arm)", picture = inventory.GetComponent<InventoryManager>().dogToyArmSprite });
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
 
                     case "DogToy(Leg)":
@@ -586,6 +592,7 @@ public class ClickHandler : MonoBehaviour
                         flowchart.ExecuteBlock("DogToy(Leg)");
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "DogToy(Leg)", picture = inventory.GetComponent<InventoryManager>().dogToyLegSprite });
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
 
                     case "DogToy(Button)":
@@ -593,6 +600,7 @@ public class ClickHandler : MonoBehaviour
                         flowchart.ExecuteBlock("DogToy(Button)");
                         inventory.GetComponent<InventoryManager>().AddItemToInventory(
                             new Item { name = "DogToy(Button)", picture = inventory.GetComponent<InventoryManager>().dogToyButtonSprite });
+                        inventory.GetComponent<AudioSource>().Play();
                         break;
 
 

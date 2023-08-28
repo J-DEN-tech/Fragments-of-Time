@@ -1875,7 +1875,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 642
     y: 192
-    width: 88
+    width: 90
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1919,8 +1919,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1676008971}
-  selectedCommands:
-  - {fileID: 1676008980}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -2056,7 +2055,7 @@ MonoBehaviour:
   tweenType: 2
   waitUntilFinished:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
   duration:
     floatRef: {fileID: 0}
     floatVal: 8
@@ -2106,7 +2105,7 @@ MonoBehaviour:
     audioSourceVal: {fileID: 978801798}
   startVolume: 1
   endVolume: 0
-  fadeDuration: 5
+  fadeDuration: 10
   waitUntilFinished: 1
   audioSourceOLD: {fileID: 0}
 --- !u!1 &1897476374

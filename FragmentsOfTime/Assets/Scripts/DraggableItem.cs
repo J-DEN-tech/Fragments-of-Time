@@ -190,7 +190,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                         }
                         break;
                     case "DogBowl":
-                        if (item.name == "DogMeds")
+                        if (item.name == "DogMeds" || item.name == "DogToy(Arm)" || item.name == "DogToy(Ear)" || item.name == "DogToy(Leg)" || item.name == "DogToy(Button)" || item.name == "Bottle")
                         {
                             ClickHandler.instance.DogBowlView.SetActive(true);
                             ClickHandler.instance.RoomStart.SetActive(false);
@@ -212,6 +212,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             InventoryManager.instance.UseItem(this.item);
                             receivingObject.GetComponent<SpriteRenderer>().enabled = true;
                             ClickHandler.instance.dogToyParts += 1;
+                            ClickHandler.instance.EmptyDogToyArm.SetActive(true);
                         }
                         break;
                     case "DogToy(EmptyEar)":
@@ -221,6 +222,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             InventoryManager.instance.UseItem(this.item);
                             receivingObject.GetComponent<SpriteRenderer>().enabled = true;
                             ClickHandler.instance.dogToyParts += 1;
+                            ClickHandler.instance.EmptyDogToyEar.SetActive(true);
                         }
                         break;
                     case "DogToy(EmptyLeg)":
@@ -230,6 +232,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             InventoryManager.instance.UseItem(this.item);
                             receivingObject.GetComponent<SpriteRenderer>().enabled = true;
                             ClickHandler.instance.dogToyParts += 1;
+                            ClickHandler.instance.EmptyDogToyLeg.SetActive(true);
                         }
                         break;
                     case "DogToy(EmptyButton)":
@@ -239,6 +242,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             InventoryManager.instance.UseItem(this.item);
                             receivingObject.GetComponent<SpriteRenderer>().enabled = true;
                             ClickHandler.instance.dogToyParts += 1;
+                            ClickHandler.instance.EmptyDogToyButton.SetActive(true);
                         }
                         break;
 
