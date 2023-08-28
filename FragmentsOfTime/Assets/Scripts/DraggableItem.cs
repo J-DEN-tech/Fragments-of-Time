@@ -1,4 +1,5 @@
 using Fungus;
+using Unity.VisualScripting;
 //using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -63,7 +64,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 Debug.Log("Hit " + hit.collider.gameObject.name);
                 switch (receivingObject.name)
                 {
-                    // // // Child Room
+                    // // // Child Room // // //
 
                     case "Key(ShelfView)":
                         if (item.name == "FairyWand")
@@ -71,6 +72,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             receivingObject.SetActive(false);
                             ClickHandler.instance.GetKey();
                             ClickHandler.instance.inventory.GetComponent<AudioSource>().Play();
+                        }
+                        break;
+                    case "Shelf":
+                        if (item.name == "FairyWand")
+                        {
+                            ClickHandler.instance.ShelfView.SetActive(true);
+                            ClickHandler.instance.RoomStart.SetActive(false);
                         }
                         break;
                     case "ToyChest(ToyChestView)":
@@ -82,6 +90,15 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             receivingObject.GetComponent<AudioSource>().Play();
                             ClickHandler.instance.ToyChest.GetComponent<SpriteRenderer>().sprite = receivingObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
                             ClickHandler.instance.chestClosed = false;
+                            InventoryManager.instance.UseItem(this.item);
+                        }
+                        break;
+                    case "ToyChest":
+                        if (item.name == "Key")
+                        {
+                            ClickHandler.instance.ToyChestView.SetActive(true);
+                            ClickHandler.instance.RoomStart.SetActive(false);
+                            ClickHandler.instance.WardrobeView.SetActive(false);
                         }
                         break;
                     case "Dog(DogBowlView)(Child)":
@@ -92,9 +109,15 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             ClickHandler.instance.flowchart.ExecuteBlock("ChildRoomEnd");
                         }
                         break;
-                    
+                    case "Dog":
+                        if (item.name == "DogToy")
+                        {
+                            ClickHandler.instance.DogBowlView.SetActive(true);
+                            ClickHandler.instance.RoomStart.SetActive(false);
+                        }
+                        break;
 
-                    // // // Teen Room
+                    // // // Teen Room // // //
 
                     case "DogBowl(DogBowlView)":
                         if (item.name == "Bottle")
@@ -128,10 +151,19 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             InventoryManager.instance.UseItem(this.item);
                         }
                         break;
+                    case "Wardrobe":
+                        if (item.name == "HangerBlue" || item.name == "HangerPink" || item.name == "HangerOrange")
+                        {
+                            ClickHandler.instance.WardrobeView.SetActive(true);
+                            ClickHandler.instance.RoomStart.SetActive(false);
+                            ClickHandler.instance.BedView.SetActive(false);
+                        }
+                        break;
                     case "DustBall":
                         if (item.name == "Broom")
                         {
                             receivingObject.GetComponent<DustBall>().CleanUpDust();
+                            ClickHandler.instance.flowchart.ExecuteBlock("DustSound");
                         }
                         break;
                     /*case "DustBall (1)":
@@ -147,7 +179,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                         }
                         break;*/
 
-                    // // // Adult Room
+                    // // // Adult Room // // //
 
                     case "Dog(DogBowlView)":
                         if (item.name == "DogMeds")
@@ -157,8 +189,21 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             ClickHandler.instance.flowchart.ExecuteBlock("Dog(Adult)2");
                         }
                         break;
+                    case "DogBowl":
+                        if (item.name == "DogMeds")
+                        {
+                            ClickHandler.instance.DogBowlView.SetActive(true);
+                            ClickHandler.instance.RoomStart.SetActive(false);
+                        }
+                        break;
+                    case "InputCode":
+                        if (item.name == "VetNote")
+                        {
+                            ClickHandler.instance.ComputerInputField.text = ClickHandler.instance.computerCode;
+                        }
+                        break;
 
-                    // // // Senior Room
+                    // // // Senior Room // // //
 
                     case "DogToy(EmptyArm)":
                         if(item.name == "DogToy(Arm)")
@@ -197,9 +242,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                         }
                         break;
 
-                    // // // Tutorial Scene
+                    // // // Tutorial Scene // // //
 
-                    case "ToyChest":
+                    case "ToyChestTut":
                         if (item.name == "KeyTut")
                         {
                             //receivingObject.SetActive(false);

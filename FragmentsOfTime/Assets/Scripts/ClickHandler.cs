@@ -55,6 +55,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject emptyHangerblue;
     public GameObject emptyHangerPink;
     public GameObject emptyHangerOrange;
+    public GameObject broom;
 
     public GameObject DogBowl;
     public GameObject Bottle;
@@ -114,12 +115,6 @@ public class ClickHandler : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
         Debug.Log("current scene = " + currentScene.name);
-        /*switch(currentScene.name)
-        {
-            case "ChildRoom":
-                flowchart.ExecuteBlock("ChildRoomStart");
-                break;
-        }*/
 
         DeskCodeInputField = DeskLock.GetComponentInChildren<TMP_InputField>();
         if (DeskCodeInputField == null)
@@ -130,6 +125,7 @@ public class ClickHandler : MonoBehaviour
         {
             Debug.Log("DeskCodeInputField is assigned.");
         }
+
         ComputerInputField = ComputerLock.GetComponentInChildren<TMP_InputField>(); 
         if (ComputerInputField == null) 
         {
@@ -144,6 +140,7 @@ public class ClickHandler : MonoBehaviour
         {
             chestClosed = true;
         }
+        
         if (currentScene.name == "Teen_Room")
         {
             inventory.GetComponent<InventoryManager>().AddItemToInventory(
@@ -180,107 +177,24 @@ public class ClickHandler : MonoBehaviour
                 GameObject clickedObject = hit.collider.gameObject;
                 switch (clickedObject.name)
                 {
-                    case "Dog":
-                        clickedObject.GetComponent<AudioSource>().Play();
-                        if (currentScene.name == "ChildRoom")
-                        {
-                            DogBowlView.SetActive(true);
-                            RoomStart.SetActive(false);
-                        }
-                        break;
-                    case "Dog(DogBowlView)(Child)":
-                        if (currentScene.name == "ChildRoom" && hasDogToy == false)
-                        {
-                            clickedObject.GetComponent<AudioSource>().Play();
-                        }
-                        else if (currentScene.name == "ChildRoom" && hasDogToy == true)
-                        {
-                            /*
-                            clickedObject.GetComponent<AudioSource>().Play();
-                            DogToyChildEnd.SetActive(true);
-                            flowchart.ExecuteBlock("ChildRoomEnd");
-                            */
-                        }
-                        break;
-                    case "Dog(DogBowlView)":
-                        if (currentScene.name == "Adult_Room" && hasDogMeds == false)
-                        {
-                            flowchart.ExecuteBlock("Dog(Adult)1");
-                        }
-                        break;
+
+                    //----------------------------//
+                    // // // Multiple Rooms // // //
+                    //----------------------------//
+
+
                     case "Window":
                         WindowView.SetActive(true);
                         RoomStart.SetActive(false);
                         WardrobeView.SetActive(false);
                         break;
-                    case "Window(Adult)":
-                        WindowView.SetActive(true);
-                        RoomStart.SetActive(false);
-                        WardrobeView.SetActive(false);
-                        flowchart.ExecuteBlock("Window(Adult)");
-                        break;
-                    case "Window(Senior)":
-                        WindowView.SetActive(true);
-                        RoomStart.SetActive(false);
-                        WardrobeView.SetActive(false);
-                        flowchart.ExecuteBlock("Window(Senior)");
-                        break;
-                    case "FlowerPot(WindowView)":
-                        Debug.Log("FlowerPot Clicked");
-                        StartCoroutine(MoveObject(hit.collider.transform.Find("FairyWand"), new Vector3(6.9f, -6.16f, 0), 1f));
-                        fairyWandOut = true;
-                        break;
-                    case "FairyWand":
-                        if (fairyWandOut == true)
-                        {
-                            Debug.Log("Fairy wand Obtained");
-                            clickedObject.SetActive(false);
-                            hasWand = true;
-                            flowchart.ExecuteBlock("FairyWand(Child)");
-                            inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                                new Item { name = "FairyWand", picture = inventory.GetComponent<InventoryManager>().wandSprite });
-                            inventory.GetComponent<AudioSource>().Play();
-                        }
-                        else
-                        {
-                            Debug.Log("FlowerPot Clicked");
-                            StartCoroutine(MoveObject(hit.collider.transform, new Vector3(6.9f, -6.16f, 0), 1f));
-                            fairyWandOut = true;
-                        }
-                        break;
-                    case "CoatHanger(WindowView)":
-                        clickedObject.SetActive(false);
-                        CoatHangerOrange.SetActive(false);
-                        hangerTotal += 1;
-                        flowchart.ExecuteBlock("CoatHangerOrange");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "HangerOrange", picture = inventory.GetComponent<InventoryManager>().hangerOrangeSprite });
-                        inventory.GetComponent<AudioSource>().Play();
-                        break;
-                    case "CoatHangerBlue":
-                        clickedObject.SetActive(false);
-                        hangerTotal += 1;
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "HangerBlue", picture = inventory.GetComponent<InventoryManager>().hangerBlueSprite });
-                        inventory.GetComponent<AudioSource>().Play();
-                        break;
-                    case "CoatHangerPink":
-                        clickedObject.SetActive(false);
-                        hangerTotal += 1;
-                        CoatHangerPink.SetActive(false);
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "HangerPink", picture = inventory.GetComponent<InventoryManager>().hangerPinkSprite });
-                        inventory.GetComponent<AudioSource>().Play();
-                        break;
-                    case "Tea_Full":
-                        clickedObject.GetComponent<TeaScript>().TeaDrink();
-                        clickedObject.GetComponent<AudioSource>().Play();
-                        break;
+
                     case "ToyChest":
                         ToyChestView.SetActive(true);
                         RoomStart.SetActive(false);
                         WardrobeView.SetActive(false);
                         break;
+
                     case "ToyChest(ToyChestView)":
                         if (chestClosed == false && currentScene.name != "Teen_Room")
                         {
@@ -317,7 +231,7 @@ public class ClickHandler : MonoBehaviour
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
                             */
                         }
-                        else if(currentScene.name == "Teen_Room")
+                        else if (currentScene.name == "Teen_Room")
                         {
                             Debug.Log("Toy Chest Opened");
                             clickedObject.GetComponent<ToyChestScript>().ToyChestOpen();
@@ -334,38 +248,7 @@ public class ClickHandler : MonoBehaviour
                             ToyChest.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<ToyChestScript>().ToyChestSprite[1];
                         }
                         break;
-                    case "DogToy":
-                        clickedObject.SetActive(false);
-                        hasDogToy = true;
-                        flowchart.ExecuteBlock("DogToy(Child)");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "DogToy", picture = inventory.GetComponent<InventoryManager>().dogToySprite });
-                        inventory.GetComponent<AudioSource>().Play();
-                        break;
-                    case "DogToy(Ear)":
-                        clickedObject.SetActive(false);
-                        flowchart.ExecuteBlock("DogToy(Ear)");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "DogToy(Ear)", picture = inventory.GetComponent<InventoryManager>().dogToyEarSprite });
-                        break;
-                    case "DogToy(Arm)":
-                        clickedObject.SetActive(false);
-                        flowchart.ExecuteBlock("DogToy(Arm)");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "DogToy(Arm)", picture = inventory.GetComponent<InventoryManager>().dogToyArmSprite });
-                        break;
-                    case "DogToy(Leg)":
-                        clickedObject.SetActive(false);
-                        flowchart.ExecuteBlock("DogToy(Leg)");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "DogToy(Leg)", picture = inventory.GetComponent<InventoryManager>().dogToyLegSprite });
-                        break;
-                    case "DogToy(Button)":
-                        clickedObject.SetActive(false);
-                        flowchart.ExecuteBlock("DogToy(Button)");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "DogToy(Button)", picture = inventory.GetComponent<InventoryManager>().dogToyButtonSprite });
-                        break;
+
                     case "Wardrobe":
                         WardrobeView.SetActive(true);
                         RoomStart.SetActive(false);
@@ -375,6 +258,7 @@ public class ClickHandler : MonoBehaviour
                             flowchart.ExecuteBlock("Wardrobe(Child)");
                         }
                         break;
+
                     case "Wardrobe(WardrobeView)":
                         clickedObject.GetComponent<WardrobeScript>().WardrobeOpen();
                         wardrobeColliderOff = true;
@@ -388,30 +272,17 @@ public class ClickHandler : MonoBehaviour
                             FuneralDress.SetActive(true);
                         }
                         break;
+
                     case "Shelf":
                         ShelfView.SetActive(true);
                         RoomStart.SetActive(false);
+                        break;
 
-                        break;
-                    case "Key(ShelfView)":
-                        if (hasWand == false)
-                        {
-                            flowchart.ExecuteBlock("Shelf(Child)");
-                        }
-                        else
-                        {
-                            /*
-                            Debug.Log("Key Obtained");
-                            hasKey = true;
-                            clickedObject.SetActive(false);
-                            flowchart.ExecuteBlock("Key(Child)");
-                            */
-                        }
-                        break;
                     case "Desk":
                         DeskView.SetActive(true);
                         RoomStart.SetActive(false);
                         break;
+
                     case "Desk(DeskView)":
                         if (isDeskLockOpen == false && currentScene.name == "Adult_Room")
                         {
@@ -434,55 +305,7 @@ public class ClickHandler : MonoBehaviour
                             DrawerView.GetComponent<AudioSource>().Play();
                         }
                         break;
-                    case "DogMeds":
-                        clickedObject.SetActive(false);
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "DogMeds", picture = inventory.GetComponent<InventoryManager>().dogMedSprite });
-                        hasDogMeds = true;
-                        break;
-                    case "VetNote":
-                        VetNoteView.SetActive(true);
-                        //DrawerView.SetActive(false);
-                        flowchart.ExecuteBlock("VetNote");
-                        if(!hasVetNote && currentScene.name == "Adult_Room")
-                        {
-                            inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                                new Item { name = "VetNote", picture = inventory.GetComponent<InventoryManager>().vetNoteSprite });
-                            hasVetNote= true;
-                        }
-                        break;
-                    case "Computer":
-                        ComputerView.SetActive(true);
-                        DeskView.SetActive(false);
-                        if (isComputerLockOpen == false)
-                        {
-                            Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
-                            ComputerLock.SetActive(true);
-                            flowchart.ExecuteBlock("Computer1");
-                        }
-                        else if (isComputerLockOpen == true)
-                        {
-                            Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
-                            
-                            flowchart.ExecuteBlock("Computer2");
-                            clickedObject.GetComponent<ComputerScript>().ComputerOpen();
-                        }
-                        break;
-                    case "Broom(DeskView)":
-                        Debug.Log("Broom Obtained");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                            new Item { name = "Broom", picture = inventory.GetComponent<InventoryManager>().broomSprite });
-                        clickedObject.SetActive(false);
-                        inventory.GetComponent<AudioSource>().Play();
-                        break;
-                    case "Bottle(DeskView)":
-                        Debug.Log("Bottle Obtained");
-                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
-                                new Item { name = "Bottle", picture = inventory.GetComponent<InventoryManager>().bottleSprite });
-                        clickedObject.SetActive(false);
-                        Bottle.SetActive(false);
-                        inventory.GetComponent<AudioSource>().Play();
-                        break;
+
                     case "DogBowl":
                         if (currentScene.name == "Senior_Room" && dogToyParts < 4)
                         {
@@ -503,15 +326,9 @@ public class ClickHandler : MonoBehaviour
                             RoomStart.SetActive(false);
                         }
                         break;
-                    case "DogBowl(DogBowlView)":
-                        /*clickedObject.GetComponent<DogBowlScript>().DogBowlFill();
-                        clickedObject.GetComponent<AudioSource>().Play();
-                        bowlfilled = true;
-                        flowchart.ExecuteBlock("DogBowl(Teen)");
-                        DogBowl.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<DogBowlScript>().DogBowlSprite[1];*/
-                        break;
+
                     case "Bed":
-                        if(currentScene.name == "ChildRoom")
+                        if (currentScene.name == "ChildRoom")
                         {
                             BedView.SetActive(true);
                             RoomStart.SetActive(false);
@@ -523,27 +340,280 @@ public class ClickHandler : MonoBehaviour
                             RoomStart.SetActive(false);
                         }
                         break;
+
                     case "Clock":
                         ClockView.SetActive(true);
                         RoomStart.SetActive(false);
                         break;
+
+
+                    //------------------------//
+                    // // // Child Room // // //
+                    //------------------------//
+
+
+                    case "Dog":
+                        clickedObject.GetComponent<AudioSource>().Play();
+                        if (currentScene.name == "ChildRoom")
+                        {
+                            DogBowlView.SetActive(true);
+                            RoomStart.SetActive(false);
+                        }
+                        break;
+
+                    case "Dog(DogBowlView)(Child)":
+                        if (currentScene.name == "ChildRoom" && hasDogToy == false)
+                        {
+                            clickedObject.GetComponent<AudioSource>().Play();
+                        }
+                        else if (currentScene.name == "ChildRoom" && hasDogToy == true)
+                        {
+                            /*
+                            clickedObject.GetComponent<AudioSource>().Play();
+                            DogToyChildEnd.SetActive(true);
+                            flowchart.ExecuteBlock("ChildRoomEnd");
+                            */
+                        }
+                        break;
+
+                    case "FlowerPot(WindowView)":
+                        Debug.Log("FlowerPot Clicked");
+                        StartCoroutine(MoveObject(hit.collider.transform.Find("FairyWand"), new Vector3(6.9f, -6.16f, 0), 1f));
+                        fairyWandOut = true;
+                        break;
+
+                    case "FairyWand":
+                        if (fairyWandOut == true)
+                        {
+                            Debug.Log("Fairy wand Obtained");
+                            clickedObject.SetActive(false);
+                            hasWand = true;
+                            flowchart.ExecuteBlock("FairyWand(Child)");
+                            inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                                new Item { name = "FairyWand", picture = inventory.GetComponent<InventoryManager>().wandSprite });
+                            inventory.GetComponent<AudioSource>().Play();
+                        }
+                        else
+                        {
+                            Debug.Log("FlowerPot Clicked");
+                            StartCoroutine(MoveObject(hit.collider.transform, new Vector3(6.9f, -6.16f, 0), 1f));
+                            fairyWandOut = true;
+                        }
+                        break;
+
+                    case "DogToy":
+                        clickedObject.SetActive(false);
+                        hasDogToy = true;
+                        flowchart.ExecuteBlock("DogToy(Child)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy", picture = inventory.GetComponent<InventoryManager>().dogToySprite });
+                        inventory.GetComponent<AudioSource>().Play();
+                        break;
+
+                    case "Key(ShelfView)":
+                        if (hasWand == false)
+                        {
+                            flowchart.ExecuteBlock("Shelf(Child)");
+                        }
+                        else
+                        {
+                            /*
+                            Debug.Log("Key Obtained");
+                            hasKey = true;
+                            clickedObject.SetActive(false);
+                            flowchart.ExecuteBlock("Key(Child)");
+                            */
+                        }
+                        break;
+
+                    case "Toy":
+                        flowchart.ExecuteBlock("WrongToy");
+                        break;
+
+
+                    //-----------------------//
+                    // // // Teen Room // // // 
+                    //-----------------------//
+
+
+                    case "CoatHanger(WindowView)":
+                        clickedObject.SetActive(false);
+                        CoatHangerOrange.SetActive(false);
+                        hangerTotal += 1;
+                        flowchart.ExecuteBlock("CoatHangerOrange");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "HangerOrange", picture = inventory.GetComponent<InventoryManager>().hangerOrangeSprite });
+                        inventory.GetComponent<AudioSource>().Play();
+                        break;
+
+                    case "CoatHangerBlue":
+                        clickedObject.SetActive(false);
+                        hangerTotal += 1;
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "HangerBlue", picture = inventory.GetComponent<InventoryManager>().hangerBlueSprite });
+                        inventory.GetComponent<AudioSource>().Play();
+                        break;
+
+                    case "CoatHangerPink":
+                        clickedObject.SetActive(false);
+                        hangerTotal += 1;
+                        CoatHangerPink.SetActive(false);
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "HangerPink", picture = inventory.GetComponent<InventoryManager>().hangerPinkSprite });
+                        inventory.GetComponent<AudioSource>().Play();
+                        break;
+
+                    case "Broom(DeskView)":
+                        Debug.Log("Broom Obtained");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "Broom", picture = inventory.GetComponent<InventoryManager>().broomSprite });
+                        clickedObject.SetActive(false);
+                        inventory.GetComponent<AudioSource>().Play();
+                        broom.SetActive(false);
+                        break;
+
+                    case "Bottle(DeskView)":
+                        Debug.Log("Bottle Obtained");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                                new Item { name = "Bottle", picture = inventory.GetComponent<InventoryManager>().bottleSprite });
+                        clickedObject.SetActive(false);
+                        Bottle.SetActive(false);
+                        inventory.GetComponent<AudioSource>().Play();
+                        break;
+
                     case "ChoreList":
                         {
                             //clickedObject.GetComponent<BoxCollider2D>().enabled = false;
                             flowchart.ExecuteBlock("ChoreListRip");
-                            
                         }
                         break;
-                    case "Toy":
-                        flowchart.ExecuteBlock("WrongToy");
+
+
+                    //------------------------//
+                    // // // Adult Room // // //
+                    //------------------------//
+
+
+                    case "Dog(DogBowlView)":
+                        if (currentScene.name == "Adult_Room" && hasDogMeds == false)
+                        {
+                            flowchart.ExecuteBlock("Dog(Adult)1");
+                        }
                         break;
+
+                    case "Window(Adult)":
+                        WindowView.SetActive(true);
+                        RoomStart.SetActive(false);
+                        WardrobeView.SetActive(false);
+                        flowchart.ExecuteBlock("Window(Adult)");
+                        break;
+
+                    case "DogMeds":
+                        clickedObject.SetActive(false);
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogMeds", picture = inventory.GetComponent<InventoryManager>().dogMedSprite });
+                        hasDogMeds = true;
+                        inventory.GetComponent<AudioSource>().Play();
+                        break;
+
+                    case "VetNote":
+                        VetNoteView.SetActive(true);
+                        //DrawerView.SetActive(false);
+                        flowchart.ExecuteBlock("VetNote");
+                        if (!hasVetNote && currentScene.name == "Adult_Room")
+                        {
+                            inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                                new Item { name = "VetNote", picture = inventory.GetComponent<InventoryManager>().vetNoteSprite });
+                            hasVetNote = true;
+                            inventory.GetComponent<AudioSource>().pitch = 0.9f;
+                            inventory.GetComponent<AudioSource>().Play();
+                            //inventory.GetComponent<AudioSource>().pitch = 1;
+                        }
+                        break;
+
+                    case "Computer":
+                        ComputerView.SetActive(true);
+                        DeskView.SetActive(false);
+                        if (isComputerLockOpen == false)
+                        {
+                            Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
+                            ComputerLock.SetActive(true);
+                            flowchart.ExecuteBlock("Computer1");
+                        }
+                        else if (isComputerLockOpen == true)
+                        {
+                            Debug.Log("isComputerLockOpen = " + isComputerLockOpen);
+
+                            flowchart.ExecuteBlock("Computer2");
+                            clickedObject.GetComponent<ComputerScript>().ComputerOpen();
+                        }
+                        break;
+
+
+                    //-------------------------//
+                    // // // Senior Room // // //
+                    //-------------------------//
+
+
+                    case "Window(Senior)":
+                        WindowView.SetActive(true);
+                        RoomStart.SetActive(false);
+                        WardrobeView.SetActive(false);
+                        flowchart.ExecuteBlock("Window(Senior)");
+                        break;
+
+                    case "Tea_Full":
+                        clickedObject.GetComponent<TeaScript>().TeaDrink();
+                        clickedObject.GetComponent<AudioSource>().Play();
+                        break;
+
+                    case "DogToy(Ear)":
+                        clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("DogToy(Ear)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy(Ear)", picture = inventory.GetComponent<InventoryManager>().dogToyEarSprite });
+                        break;
+
+                    case "DogToy(Arm)":
+                        clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("DogToy(Arm)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy(Arm)", picture = inventory.GetComponent<InventoryManager>().dogToyArmSprite });
+                        break;
+
+                    case "DogToy(Leg)":
+                        clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("DogToy(Leg)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy(Leg)", picture = inventory.GetComponent<InventoryManager>().dogToyLegSprite });
+                        break;
+
+                    case "DogToy(Button)":
+                        clickedObject.SetActive(false);
+                        flowchart.ExecuteBlock("DogToy(Button)");
+                        inventory.GetComponent<InventoryManager>().AddItemToInventory(
+                            new Item { name = "DogToy(Button)", picture = inventory.GetComponent<InventoryManager>().dogToyButtonSprite });
+                        break;
+
+
+                    //------------------//
+                    // // // Misc // // //
+                    //------------------//
+
+
+                    case "DogBowl(DogBowlView)":
+                        /*clickedObject.GetComponent<DogBowlScript>().DogBowlFill();
+                        clickedObject.GetComponent<AudioSource>().Play();
+                        bowlfilled = true;
+                        flowchart.ExecuteBlock("DogBowl(Teen)");
+                        DogBowl.GetComponent<SpriteRenderer>().sprite = clickedObject.GetComponent<DogBowlScript>().DogBowlSprite[1];*/
+                        break;
+
                     default:
                         Debug.Log(clickedObject.name + " was clicked!");
                         // Perform default action
                         break;
                 }
-
-
             }
         }
         if (currentScene.name == "Senior_Room" && dogToyParts >= 4)
@@ -563,6 +633,11 @@ public class ClickHandler : MonoBehaviour
             flowchart.ExecuteBlock("Wardrobe2");
         }
 
+        if (!inventory.GetComponent<AudioSource>().isPlaying && inventory.GetComponent<AudioSource>().pitch != 1)
+        {
+            inventory.GetComponent<AudioSource>().pitch = 1f;
+            Debug.Log("UI ding set back to 1");
+        }
         
         if (ChoreListView.activeInHierarchy && temp1 == false)
         {
@@ -624,6 +699,7 @@ public class ClickHandler : MonoBehaviour
         inventory.GetComponent<InventoryManager>().AddItemToInventory(
             new Item { name = "Key", picture = inventory.GetComponent<InventoryManager>().keySprite });
     }
+
     public void DeskCode()
     {
         string enteredCode = DeskCodeInputField.text;
@@ -642,6 +718,7 @@ public class ClickHandler : MonoBehaviour
             Debug.Log("incorrect code");
         }
     }
+
     public void ComputerCode()
     {
         string enteredCode = ComputerInputField.text;
@@ -662,6 +739,7 @@ public class ClickHandler : MonoBehaviour
             Debug.Log("incorrect code");
         }
     }
+
     public void TeenRoomEnd()
     {
         if(currentScene.name == "Teen_Room" && hangerFinished == true && bowlfilled == true && dustSpriteManager.GetComponent<DustBallManager>().dustBallsCleaned == true) 
@@ -681,6 +759,7 @@ public class ClickHandler : MonoBehaviour
         if(!this.gameObject.GetComponent<AudioSource>().isPlaying)
         this.gameObject.GetComponent<AudioSource>().Play();
     }
+
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float duration)
     {
         float elapsed = 0;
@@ -697,5 +776,4 @@ public class ClickHandler : MonoBehaviour
         objectToMove.localPosition = targetPosition;
         collider.enabled = true;
     }
-
 }

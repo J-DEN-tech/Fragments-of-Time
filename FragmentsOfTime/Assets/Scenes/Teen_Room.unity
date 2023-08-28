@@ -3453,7 +3453,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.45103806, y: 0}
+  m_Offset: {x: -0.536188, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3464,7 +3464,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.8620744, y: 6.48}
+  m_Size: {x: 5.0323744, y: 6.48}
   m_EdgeRadius: 0
 --- !u!1 &560480513
 GameObject:
@@ -3820,6 +3820,7 @@ MonoBehaviour:
   emptyHangerblue: {fileID: 1156255459}
   emptyHangerPink: {fileID: 1684399355}
   emptyHangerOrange: {fileID: 1689450884}
+  broom: {fileID: 1386084367}
   DogBowl: {fileID: 1377003695}
   Bottle: {fileID: 684242543}
   WardrobeCollider: {fileID: 1657292677}
@@ -10657,6 +10658,8 @@ GameObject:
   - component: {fileID: 1636311627}
   - component: {fileID: 1636311626}
   - component: {fileID: 1636311625}
+  - component: {fileID: 1636311630}
+  - component: {fileID: 1636311629}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -10778,7 +10781,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 67
     y: 70
-    width: 138
+    width: 140
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10820,9 +10823,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1636311628}
+  - {fileID: 1636311630}
   selectedCommands:
-  - {fileID: 1636311625}
+  - {fileID: 1636311629}
   variables: []
   description: 
   stepPause: 0
@@ -10920,7 +10923,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 69.78992
     y: 120.74771
-    width: 138
+    width: 140.66666
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10977,7 +10980,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 60.789917
     y: 169.74771
-    width: 159
+    width: 163.33334
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11087,7 +11090,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 79.78992
     y: 228.74771
-    width: 132
+    width: 134.66666
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11165,7 +11168,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 319.78992
     y: 184.74771
-    width: 111
+    width: 113.33333
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11222,7 +11225,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 320.78992
     y: 131.74771
-    width: 110
+    width: 112
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11647,7 +11650,7 @@ MonoBehaviour:
   sayDialog: {fileID: 94391122}
 --- !u!114 &1636311625
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11674,7 +11677,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1636311626
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11702,7 +11705,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1636311627
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11744,7 +11747,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 265.2992
     y: 348.8703
-    width: 123
+    width: 126
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11756,6 +11759,50 @@ MonoBehaviour:
   - {fileID: 1636311627}
   - {fileID: 1636311625}
   - {fileID: 1636311626}
+  suppressAllAutoSelections: 0
+--- !u!114 &1636311629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 39
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: e62b8abe0548f234fb5fff9ee9c8e535, type: 3}
+  volume: 0.5
+  waitUntilFinished: 0
+--- !u!114 &1636311630
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636311586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 597.2992
+    y: 260.8703
+    width: 114
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 38
+  blockName: DustSound
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1636311629}
   suppressAllAutoSelections: 0
 --- !u!1 &1657292677
 GameObject:
@@ -12542,7 +12589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1727642600
 Transform:
   m_ObjectHideFlags: 0
@@ -13436,7 +13483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889832598}
   m_LocalRotation: {x: -0, y: -0, z: -0.24263093, w: 0.9701187}
-  m_LocalPosition: {x: 6.76, y: -5.25, z: 0}
+  m_LocalPosition: {x: 6.39, y: -5.23, z: 0}
   m_LocalScale: {x: 0.06394902, y: 0.06394902, z: 0.06394902}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13775,7 +13822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1939120989
 Transform:
   m_ObjectHideFlags: 0

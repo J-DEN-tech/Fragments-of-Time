@@ -6033,7 +6033,7 @@ GameObject:
   - component: {fileID: 1990376864}
   - component: {fileID: 1990376863}
   m_Layer: 0
-  m_Name: ToyChest
+  m_Name: ToyChestTut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
